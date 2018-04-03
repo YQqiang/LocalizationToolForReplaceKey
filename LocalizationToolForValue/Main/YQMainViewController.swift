@@ -78,21 +78,38 @@ class YQMainViewController: NSViewController {
     }
     
     @IBAction func startAction(_ sender: NSButton) {
-        let sourceKeyValueModels = allKeyValueModels(sourceDataList)
         let targetKeyValueModels = allKeyValueModels(targetDataList)
-        
-        sourceKeyValueModels.forEach { (sourceKeyValueModel) in
-            targetKeyValueModels.forEach({ (targetKeyValueModel) in
-                if sourceKeyValueModel.key == targetKeyValueModel.key {
-                    sourceKeyValueModel.chValue = targetKeyValueModel.chValue
-                    sourceKeyValueModel.enValue = targetKeyValueModel.enValue
-                    sourceKeyValueModel.geValue = targetKeyValueModel.geValue
-                    sourceKeyValueModel.jpValue = targetKeyValueModel.jpValue
-                }
-                
-            })
-        }
-        JointManager.shared.Joint(sourceKeyValueModels)
+        targetKeyValueModels.forEach({ (targetKeyValueModel) in
+            sourceDataList.forEach { (fileModelSuper) in
+                fileModelSuper.enumeratorFile({ (filePath) in
+                    let fileModel = YQFileModel(filePath: filePath)
+                    let content = try? String.init(contentsOfFile: fileModel.filePath, encoding: String.Encoding.utf8)
+                    if let content = content {
+                        let regular = try? NSRegularExpression(pattern: "(?<=\").*?(?=\" = \")", options: .caseInsensitive)
+                        let matches = regular?.matches(in: content, options: .reportProgress, range: NSRange.init(location: 0, length: content.count))
+                        if let checkResults = matches {
+                            for checkResult in checkResults {
+                                let key = (content as NSString).substring(with: checkResult.range)
+                                if !key.hasPrefix("I18N") {
+                                    let sourceKeyValueModel = KeyValueModel(key: key, chValue: "", enValue: "", geValue: "", jpValue: "")
+                                    sourceKeyValueModel.filePath = fileModel.filePath
+                                    sourceKeyValueModel.range = checkResult.range
+                                    if sourceKeyValueModel.key == targetKeyValueModel.chValue {
+                                        if let path = sourceKeyValueModel.filePath,
+                                            let range = sourceKeyValueModel.range {
+                                            var content = try? String.init(contentsOfFile: path, encoding: String.Encoding.utf8)
+                                            content = ((content ?? "") as NSString).replacingOccurrences(of: sourceKeyValueModel.key, with: targetKeyValueModel.key, options: .anchored, range: range)
+                                            try? content?.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
+                                        }
+                                    }
+                                    
+                                }
+                            }
+                        }
+                    }
+                })
+            }
+        })
     }
     
     @IBAction func selectPathAction(_ sender: NSButton) {

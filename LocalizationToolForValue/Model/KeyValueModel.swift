@@ -20,6 +20,9 @@ class KeyValueModel: Decodable {
     // 日文
     var jpValue: String = ""
     
+    var range: NSRange?
+    var filePath: String?
+    
     init(key: String, chValue: String, enValue: String, geValue: String, jpValue: String) {
         self.key = key
         self.chValue = chValue
