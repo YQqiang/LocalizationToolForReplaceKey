@@ -1,0 +1,636 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2F09ADC0202D28CF007FD91E /* EnumeratorFileProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F09ADBF202D28CF007FD91E /* EnumeratorFileProtocol.swift */; };
+		2F09ADC3202D3EFD007FD91E /* KeyValueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F09ADC2202D3EFD007FD91E /* KeyValueModel.swift */; };
+		2F09ADC5202D424E007FD91E /* SplitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F09ADC4202D424E007FD91E /* SplitManager.swift */; };
+		2F09ADC7202D4D83007FD91E /* JointManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F09ADC6202D4D83007FD91E /* JointManager.swift */; };
+		2F2981F220300E8800925E7F /* YQQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2981F020300E8800925E7F /* YQQuestionViewController.swift */; };
+		2F2981F320300E8800925E7F /* YQQuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F2981F120300E8800925E7F /* YQQuestionViewController.xib */; };
+		2FC0C7B6202C339400D7CC80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC0C7B5202C339400D7CC80 /* AppDelegate.swift */; };
+		2FC0C7B8202C339400D7CC80 /* YQMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC0C7B7202C339400D7CC80 /* YQMainViewController.swift */; };
+		2FC0C7BA202C339400D7CC80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FC0C7B9202C339400D7CC80 /* Assets.xcassets */; };
+		2FC0C7BD202C339400D7CC80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FC0C7BB202C339400D7CC80 /* Main.storyboard */; };
+		2FC0C7C9202C339400D7CC80 /* LocalizationToolForValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC0C7C8202C339400D7CC80 /* LocalizationToolForValueTests.swift */; };
+		2FC0C7D4202C339400D7CC80 /* LocalizationToolForValueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC0C7D3202C339400D7CC80 /* LocalizationToolForValueUITests.swift */; };
+		2FC0C7E4202C340C00D7CC80 /* YQMainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC0C7E3202C340C00D7CC80 /* YQMainWindowController.swift */; };
+		2FC0C7E7202C347E00D7CC80 /* YQFileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC0C7E6202C347E00D7CC80 /* YQFileModel.swift */; };
+		2FC0C7EA202C34A100D7CC80 /* YQTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC0C7E9202C34A100D7CC80 /* YQTableViewDelegate.swift */; };
+		2FC0C7EC202C34AC00D7CC80 /* YQDragDropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC0C7EB202C34AC00D7CC80 /* YQDragDropView.swift */; };
+		2FC0C7EE202C34B200D7CC80 /* YQGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC0C7ED202C34B200D7CC80 /* YQGradientView.swift */; };
+		2FC0C7F1202C3B7000D7CC80 /* YQTableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FC0C7EF202C3B7000D7CC80 /* YQTableCellView.xib */; };
+		2FC0C7F2202C3B7000D7CC80 /* YQTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC0C7F0202C3B7000D7CC80 /* YQTableCellView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2FC0C7C5202C339400D7CC80 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2FC0C7AA202C339400D7CC80 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2FC0C7B1202C339400D7CC80;
+			remoteInfo = LocalizationToolForValue;
+		};
+		2FC0C7D0202C339400D7CC80 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2FC0C7AA202C339400D7CC80 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2FC0C7B1202C339400D7CC80;
+			remoteInfo = LocalizationToolForValue;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2F09ADBF202D28CF007FD91E /* EnumeratorFileProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumeratorFileProtocol.swift; sourceTree = "<group>"; };
+		2F09ADC2202D3EFD007FD91E /* KeyValueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueModel.swift; sourceTree = "<group>"; };
+		2F09ADC4202D424E007FD91E /* SplitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitManager.swift; sourceTree = "<group>"; };
+		2F09ADC6202D4D83007FD91E /* JointManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JointManager.swift; sourceTree = "<group>"; };
+		2F2981F020300E8800925E7F /* YQQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YQQuestionViewController.swift; sourceTree = "<group>"; };
+		2F2981F120300E8800925E7F /* YQQuestionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YQQuestionViewController.xib; sourceTree = "<group>"; };
+		2FC0C7B2202C339400D7CC80 /* LocalizationToolForReplaceKey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalizationToolForReplaceKey.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FC0C7B5202C339400D7CC80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2FC0C7B7202C339400D7CC80 /* YQMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YQMainViewController.swift; sourceTree = "<group>"; };
+		2FC0C7B9202C339400D7CC80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2FC0C7BC202C339400D7CC80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2FC0C7BE202C339400D7CC80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FC0C7BF202C339400D7CC80 /* LocalizationToolForValue.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LocalizationToolForValue.entitlements; sourceTree = "<group>"; };
+		2FC0C7C4202C339400D7CC80 /* LocalizationToolForReplaceKeyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocalizationToolForReplaceKeyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FC0C7C8202C339400D7CC80 /* LocalizationToolForValueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationToolForValueTests.swift; sourceTree = "<group>"; };
+		2FC0C7CA202C339400D7CC80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FC0C7CF202C339400D7CC80 /* LocalizationToolForReplaceKeyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocalizationToolForReplaceKeyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FC0C7D3202C339400D7CC80 /* LocalizationToolForValueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationToolForValueUITests.swift; sourceTree = "<group>"; };
+		2FC0C7D5202C339400D7CC80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FC0C7E3202C340C00D7CC80 /* YQMainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YQMainWindowController.swift; sourceTree = "<group>"; };
+		2FC0C7E6202C347E00D7CC80 /* YQFileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YQFileModel.swift; sourceTree = "<group>"; };
+		2FC0C7E9202C34A100D7CC80 /* YQTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YQTableViewDelegate.swift; sourceTree = "<group>"; };
+		2FC0C7EB202C34AC00D7CC80 /* YQDragDropView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YQDragDropView.swift; sourceTree = "<group>"; };
+		2FC0C7ED202C34B200D7CC80 /* YQGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YQGradientView.swift; sourceTree = "<group>"; };
+		2FC0C7EF202C3B7000D7CC80 /* YQTableCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YQTableCellView.xib; sourceTree = "<group>"; };
+		2FC0C7F0202C3B7000D7CC80 /* YQTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YQTableCellView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2FC0C7AF202C339400D7CC80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FC0C7C1202C339400D7CC80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FC0C7CC202C339400D7CC80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2FC0C7A9202C339400D7CC80 = {
+			isa = PBXGroup;
+			children = (
+				2FC0C7B4202C339400D7CC80 /* LocalizationToolForValue */,
+				2FC0C7C7202C339400D7CC80 /* LocalizationToolForValueTests */,
+				2FC0C7D2202C339400D7CC80 /* LocalizationToolForValueUITests */,
+				2FC0C7B3202C339400D7CC80 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2FC0C7B3202C339400D7CC80 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2FC0C7B2202C339400D7CC80 /* LocalizationToolForReplaceKey.app */,
+				2FC0C7C4202C339400D7CC80 /* LocalizationToolForReplaceKeyTests.xctest */,
+				2FC0C7CF202C339400D7CC80 /* LocalizationToolForReplaceKeyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2FC0C7B4202C339400D7CC80 /* LocalizationToolForValue */ = {
+			isa = PBXGroup;
+			children = (
+				2FC0C7E8202C349100D7CC80 /* Model */,
+				2FC0C7E5202C345700D7CC80 /* View */,
+				2FC0C7E2202C33B500D7CC80 /* Main */,
+				2FC0C7E1202C33A100D7CC80 /* Resource */,
+				2FC0C7BE202C339400D7CC80 /* Info.plist */,
+				2FC0C7BF202C339400D7CC80 /* LocalizationToolForValue.entitlements */,
+			);
+			path = LocalizationToolForValue;
+			sourceTree = "<group>";
+		};
+		2FC0C7C7202C339400D7CC80 /* LocalizationToolForValueTests */ = {
+			isa = PBXGroup;
+			children = (
+				2FC0C7C8202C339400D7CC80 /* LocalizationToolForValueTests.swift */,
+				2FC0C7CA202C339400D7CC80 /* Info.plist */,
+			);
+			path = LocalizationToolForValueTests;
+			sourceTree = "<group>";
+		};
+		2FC0C7D2202C339400D7CC80 /* LocalizationToolForValueUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2FC0C7D3202C339400D7CC80 /* LocalizationToolForValueUITests.swift */,
+				2FC0C7D5202C339400D7CC80 /* Info.plist */,
+			);
+			path = LocalizationToolForValueUITests;
+			sourceTree = "<group>";
+		};
+		2FC0C7E1202C33A100D7CC80 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				2FC0C7B9202C339400D7CC80 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		2FC0C7E2202C33B500D7CC80 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				2FC0C7B5202C339400D7CC80 /* AppDelegate.swift */,
+				2F2981F020300E8800925E7F /* YQQuestionViewController.swift */,
+				2F2981F120300E8800925E7F /* YQQuestionViewController.xib */,
+				2FC0C7B7202C339400D7CC80 /* YQMainViewController.swift */,
+				2FC0C7E3202C340C00D7CC80 /* YQMainWindowController.swift */,
+				2FC0C7BB202C339400D7CC80 /* Main.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		2FC0C7E5202C345700D7CC80 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2FC0C7EB202C34AC00D7CC80 /* YQDragDropView.swift */,
+				2FC0C7ED202C34B200D7CC80 /* YQGradientView.swift */,
+				2FC0C7F0202C3B7000D7CC80 /* YQTableCellView.swift */,
+				2FC0C7EF202C3B7000D7CC80 /* YQTableCellView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2FC0C7E8202C349100D7CC80 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2FC0C7E6202C347E00D7CC80 /* YQFileModel.swift */,
+				2FC0C7E9202C34A100D7CC80 /* YQTableViewDelegate.swift */,
+				2F09ADBF202D28CF007FD91E /* EnumeratorFileProtocol.swift */,
+				2F09ADC2202D3EFD007FD91E /* KeyValueModel.swift */,
+				2F09ADC4202D424E007FD91E /* SplitManager.swift */,
+				2F09ADC6202D4D83007FD91E /* JointManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2FC0C7B1202C339400D7CC80 /* LocalizationToolForReplaceKey */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FC0C7D8202C339400D7CC80 /* Build configuration list for PBXNativeTarget "LocalizationToolForReplaceKey" */;
+			buildPhases = (
+				2FC0C7AE202C339400D7CC80 /* Sources */,
+				2FC0C7AF202C339400D7CC80 /* Frameworks */,
+				2FC0C7B0202C339400D7CC80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LocalizationToolForReplaceKey;
+			productName = LocalizationToolForValue;
+			productReference = 2FC0C7B2202C339400D7CC80 /* LocalizationToolForReplaceKey.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2FC0C7C3202C339400D7CC80 /* LocalizationToolForReplaceKeyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FC0C7DB202C339400D7CC80 /* Build configuration list for PBXNativeTarget "LocalizationToolForReplaceKeyTests" */;
+			buildPhases = (
+				2FC0C7C0202C339400D7CC80 /* Sources */,
+				2FC0C7C1202C339400D7CC80 /* Frameworks */,
+				2FC0C7C2202C339400D7CC80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2FC0C7C6202C339400D7CC80 /* PBXTargetDependency */,
+			);
+			name = LocalizationToolForReplaceKeyTests;
+			productName = LocalizationToolForValueTests;
+			productReference = 2FC0C7C4202C339400D7CC80 /* LocalizationToolForReplaceKeyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2FC0C7CE202C339400D7CC80 /* LocalizationToolForReplaceKeyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FC0C7DE202C339400D7CC80 /* Build configuration list for PBXNativeTarget "LocalizationToolForReplaceKeyUITests" */;
+			buildPhases = (
+				2FC0C7CB202C339400D7CC80 /* Sources */,
+				2FC0C7CC202C339400D7CC80 /* Frameworks */,
+				2FC0C7CD202C339400D7CC80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2FC0C7D1202C339400D7CC80 /* PBXTargetDependency */,
+			);
+			name = LocalizationToolForReplaceKeyUITests;
+			productName = LocalizationToolForValueUITests;
+			productReference = 2FC0C7CF202C339400D7CC80 /* LocalizationToolForReplaceKeyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2FC0C7AA202C339400D7CC80 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = YQ;
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = sungrow;
+				TargetAttributes = {
+					2FC0C7B1202C339400D7CC80 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
+					2FC0C7C3202C339400D7CC80 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 2FC0C7B1202C339400D7CC80;
+					};
+					2FC0C7CE202C339400D7CC80 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 2FC0C7B1202C339400D7CC80;
+					};
+				};
+			};
+			buildConfigurationList = 2FC0C7AD202C339400D7CC80 /* Build configuration list for PBXProject "LocalizationToolForReplaceKey" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2FC0C7A9202C339400D7CC80;
+			productRefGroup = 2FC0C7B3202C339400D7CC80 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2FC0C7B1202C339400D7CC80 /* LocalizationToolForReplaceKey */,
+				2FC0C7C3202C339400D7CC80 /* LocalizationToolForReplaceKeyTests */,
+				2FC0C7CE202C339400D7CC80 /* LocalizationToolForReplaceKeyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2FC0C7B0202C339400D7CC80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FC0C7BA202C339400D7CC80 /* Assets.xcassets in Resources */,
+				2FC0C7BD202C339400D7CC80 /* Main.storyboard in Resources */,
+				2F2981F320300E8800925E7F /* YQQuestionViewController.xib in Resources */,
+				2FC0C7F1202C3B7000D7CC80 /* YQTableCellView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FC0C7C2202C339400D7CC80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FC0C7CD202C339400D7CC80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2FC0C7AE202C339400D7CC80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F09ADC0202D28CF007FD91E /* EnumeratorFileProtocol.swift in Sources */,
+				2FC0C7B8202C339400D7CC80 /* YQMainViewController.swift in Sources */,
+				2FC0C7E4202C340C00D7CC80 /* YQMainWindowController.swift in Sources */,
+				2F09ADC3202D3EFD007FD91E /* KeyValueModel.swift in Sources */,
+				2FC0C7B6202C339400D7CC80 /* AppDelegate.swift in Sources */,
+				2F09ADC5202D424E007FD91E /* SplitManager.swift in Sources */,
+				2F2981F220300E8800925E7F /* YQQuestionViewController.swift in Sources */,
+				2FC0C7EA202C34A100D7CC80 /* YQTableViewDelegate.swift in Sources */,
+				2FC0C7E7202C347E00D7CC80 /* YQFileModel.swift in Sources */,
+				2F09ADC7202D4D83007FD91E /* JointManager.swift in Sources */,
+				2FC0C7F2202C3B7000D7CC80 /* YQTableCellView.swift in Sources */,
+				2FC0C7EC202C34AC00D7CC80 /* YQDragDropView.swift in Sources */,
+				2FC0C7EE202C34B200D7CC80 /* YQGradientView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FC0C7C0202C339400D7CC80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FC0C7C9202C339400D7CC80 /* LocalizationToolForValueTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FC0C7CB202C339400D7CC80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FC0C7D4202C339400D7CC80 /* LocalizationToolForValueUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2FC0C7C6202C339400D7CC80 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2FC0C7B1202C339400D7CC80 /* LocalizationToolForReplaceKey */;
+			targetProxy = 2FC0C7C5202C339400D7CC80 /* PBXContainerItemProxy */;
+		};
+		2FC0C7D1202C339400D7CC80 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2FC0C7B1202C339400D7CC80 /* LocalizationToolForReplaceKey */;
+			targetProxy = 2FC0C7D0202C339400D7CC80 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2FC0C7BB202C339400D7CC80 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2FC0C7BC202C339400D7CC80 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2FC0C7D6202C339400D7CC80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2FC0C7D7202C339400D7CC80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		2FC0C7D9202C339400D7CC80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = LocalizationToolForValue/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sungrow.LocalizationToolForValue;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		2FC0C7DA202C339400D7CC80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = LocalizationToolForValue/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sungrow.LocalizationToolForValue;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		2FC0C7DC202C339400D7CC80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = LocalizationToolForValueTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sungrow.LocalizationToolForValueTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LocalizationToolForReplaceKey.app/Contents/MacOS/LocalizationToolForReplaceKey";
+			};
+			name = Debug;
+		};
+		2FC0C7DD202C339400D7CC80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = LocalizationToolForValueTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sungrow.LocalizationToolForValueTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LocalizationToolForReplaceKey.app/Contents/MacOS/LocalizationToolForReplaceKey";
+			};
+			name = Release;
+		};
+		2FC0C7DF202C339400D7CC80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = LocalizationToolForValueUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sungrow.LocalizationToolForValueUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = LocalizationToolForValue;
+			};
+			name = Debug;
+		};
+		2FC0C7E0202C339400D7CC80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = LocalizationToolForValueUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sungrow.LocalizationToolForValueUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = LocalizationToolForValue;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2FC0C7AD202C339400D7CC80 /* Build configuration list for PBXProject "LocalizationToolForReplaceKey" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FC0C7D6202C339400D7CC80 /* Debug */,
+				2FC0C7D7202C339400D7CC80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2FC0C7D8202C339400D7CC80 /* Build configuration list for PBXNativeTarget "LocalizationToolForReplaceKey" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FC0C7D9202C339400D7CC80 /* Debug */,
+				2FC0C7DA202C339400D7CC80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2FC0C7DB202C339400D7CC80 /* Build configuration list for PBXNativeTarget "LocalizationToolForReplaceKeyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FC0C7DC202C339400D7CC80 /* Debug */,
+				2FC0C7DD202C339400D7CC80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2FC0C7DE202C339400D7CC80 /* Build configuration list for PBXNativeTarget "LocalizationToolForReplaceKeyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FC0C7DF202C339400D7CC80 /* Debug */,
+				2FC0C7E0202C339400D7CC80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2FC0C7AA202C339400D7CC80 /* Project object */;
+}

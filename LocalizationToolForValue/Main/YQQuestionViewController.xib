@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="YQQuestionViewController" customModule="LocalizationToolForValue" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="463" height="461"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="upe-sb-wiH">
+                    <rect key="frame" x="14" y="420" width="435" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="功能概述:" id="uSo-SP-fJG">
+                        <font key="font" size="13" name=".PingFangSC-Regular"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOP-n1-eIG">
+                    <rect key="frame" x="16" y="342" width="431" height="70"/>
+                    <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="z5m-Ea-RPM">
+                        <rect key="frame" x="1" y="1" width="429" height="68"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="5Ba-cr-1ax">
+                                <rect key="frame" x="0.0" y="0.0" width="429" height="68"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.18046289369999999" green="0.76571978139999997" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="minSize" width="429" height="68"/>
+                                <size key="maxSize" width="463" height="10000000"/>
+                                <attributedString key="textStorage">
+                                    <fragment>
+                                        <string key="content">1. 根据已有的资源文件, 查询平台中的资源自动生成其他语言的资源文件.
+2. 支持文件夹/文件拖拽操作
+3. 支持自定义输出路径.</string>
+                                        <attributes>
+                                            <font key="NSFont" size="12" name="PingFangSC-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.18046289369999999" green="0.76571978139999997" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    </clipView>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="1qG-g9-l5C"/>
+                    </constraints>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="geM-5f-Xr7">
+                        <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="jji-SU-T5Q">
+                        <rect key="frame" x="414" y="1" width="16" height="68"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VeP-R0-cn7">
+                    <rect key="frame" x="14" y="301" width="435" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="使用教程:" id="gv1-Ql-l0m">
+                        <font key="font" size="13" name=".PingFangSC-Regular"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmo-hO-RT3">
+                    <rect key="frame" x="16" y="183" width="431" height="110"/>
+                    <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Y7V-jt-CIK">
+                        <rect key="frame" x="1" y="1" width="429" height="108"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="gN5-dO-Dew">
+                                <rect key="frame" x="0.0" y="0.0" width="429" height="108"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.18046289369999999" green="0.76571978139999997" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="minSize" width="429" height="108"/>
+                                <size key="maxSize" width="463" height="10000000"/>
+                                <attributedString key="textStorage">
+                                    <fragment>
+                                        <string key="content">第一步: 拖入已有的资源文件(例如资源: Localizable.strings)
+           该操作主要是为了拿到已有资源文件中的`key`.
+第二步: 拖入平台已有的资源文件库
+           暂时支持`Strings`, `json`等类型的解析, (ps: 数据库文件可先导出为json后使用), 后续会增加`xls`, `db` 等格式文件的解析.
+第三步: 点击右下角开始按钮即可</string>
+                                        <attributes>
+                                            <font key="NSFont" size="12" name="PingFangSC-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.18046289369999999" green="0.76571978139999997" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    </clipView>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="110" id="S34-YD-erz"/>
+                    </constraints>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="zzL-Hy-qNH">
+                        <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="eEH-1d-sPB">
+                        <rect key="frame" x="414" y="1" width="16" height="108"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Tc0-Wr-9pT">
+                    <rect key="frame" x="14" y="142" width="435" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="知识拓展" id="Zlg-1n-GW1">
+                        <font key="font" size="13" name=".PingFangSC-Regular"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hiz-5C-xgY">
+                    <rect key="frame" x="16" y="24" width="431" height="110"/>
+                    <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Jhg-Rl-FhS">
+                        <rect key="frame" x="1" y="1" width="429" height="108"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="HPY-a1-Dgl">
+                                <rect key="frame" x="0.0" y="0.0" width="429" height="108"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.18046289369999999" green="0.76571978139999997" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="minSize" width="429" height="108"/>
+                                <size key="maxSize" width="463" height="10000000"/>
+                                <attributedString key="textStorage">
+                                    <fragment>
+                                        <string key="content">      i18n（其来源是英文单词 internationalization的首末字符i和n，18为中间的字符数）是“国际化”的简称。在资讯领域，国际化(i18n)指让产品（出版物，软件，硬件等）无需做大的改变就能够适应不同的语言和地区的需要。对程序来说，在不修改内部代码的情况下，能根据不同语言及地区显示相应的界面。 在全球化的时代，国际化尤为重要，因为产品的潜在用户可能来自世界的各个角落。通常与i18n相关的还有L10n（“本地化”的简称）。</string>
+                                        <attributes>
+                                            <font key="NSFont" size="12" name="PingFangSC-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.18046289369999999" green="0.76571978139999997" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    </clipView>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="110" id="mFm-jD-JPe"/>
+                    </constraints>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="H1H-PL-l1a">
+                        <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="4El-9x-EK2">
+                        <rect key="frame" x="414" y="1" width="16" height="108"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="VeP-R0-cn7" firstAttribute="leading" secondItem="upe-sb-wiH" secondAttribute="leading" id="0we-mk-8EX"/>
+                <constraint firstItem="hiz-5C-xgY" firstAttribute="top" secondItem="Tc0-Wr-9pT" secondAttribute="bottom" constant="8" id="2dj-Ar-LWO"/>
+                <constraint firstItem="VeP-R0-cn7" firstAttribute="trailing" secondItem="upe-sb-wiH" secondAttribute="trailing" id="872-Mg-1n2"/>
+                <constraint firstItem="Tc0-Wr-9pT" firstAttribute="top" secondItem="cmo-hO-RT3" secondAttribute="bottom" constant="24" id="Dc5-J7-MPw"/>
+                <constraint firstItem="Tc0-Wr-9pT" firstAttribute="leading" secondItem="VeP-R0-cn7" secondAttribute="leading" id="IBj-mD-sMQ"/>
+                <constraint firstItem="upe-sb-wiH" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="16" id="J6e-En-aqV"/>
+                <constraint firstItem="cmo-hO-RT3" firstAttribute="leading" secondItem="VeP-R0-cn7" secondAttribute="leading" id="Nwo-Za-i0p"/>
+                <constraint firstItem="mOP-n1-eIG" firstAttribute="leading" secondItem="upe-sb-wiH" secondAttribute="leading" id="QoQ-T2-1vG"/>
+                <constraint firstItem="hiz-5C-xgY" firstAttribute="leading" secondItem="Tc0-Wr-9pT" secondAttribute="leading" id="UHh-9c-YAI"/>
+                <constraint firstItem="cmo-hO-RT3" firstAttribute="trailing" secondItem="VeP-R0-cn7" secondAttribute="trailing" id="bgN-sG-WsH"/>
+                <constraint firstItem="upe-sb-wiH" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="24" id="eGY-D0-DO4"/>
+                <constraint firstItem="VeP-R0-cn7" firstAttribute="top" secondItem="mOP-n1-eIG" secondAttribute="bottom" constant="24" id="jGw-pO-Fww"/>
+                <constraint firstAttribute="trailing" secondItem="upe-sb-wiH" secondAttribute="trailing" constant="16" id="jKF-h1-QCg"/>
+                <constraint firstItem="cmo-hO-RT3" firstAttribute="top" secondItem="VeP-R0-cn7" secondAttribute="bottom" constant="8" id="jza-zT-kgd"/>
+                <constraint firstItem="hiz-5C-xgY" firstAttribute="trailing" secondItem="Tc0-Wr-9pT" secondAttribute="trailing" id="mM6-MD-f1c"/>
+                <constraint firstItem="Tc0-Wr-9pT" firstAttribute="trailing" secondItem="VeP-R0-cn7" secondAttribute="trailing" id="oI3-1E-Ntq"/>
+                <constraint firstItem="mOP-n1-eIG" firstAttribute="trailing" secondItem="upe-sb-wiH" secondAttribute="trailing" id="pUh-Sp-39W"/>
+                <constraint firstAttribute="bottom" secondItem="hiz-5C-xgY" secondAttribute="bottom" constant="24" id="swP-US-qN2"/>
+                <constraint firstItem="mOP-n1-eIG" firstAttribute="top" secondItem="upe-sb-wiH" secondAttribute="bottom" constant="8" id="zY3-6k-Ejy"/>
+            </constraints>
+            <point key="canvasLocation" x="130.5" y="353.5"/>
+        </customView>
+    </objects>
+</document>
