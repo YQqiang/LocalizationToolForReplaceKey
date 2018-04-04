@@ -22,6 +22,9 @@ class YQMainViewController: NSViewController {
     @IBOutlet weak var targetDragDropView: YQDragDropView!
     @IBOutlet weak var bgGradientView: YQGradientView!
     
+    @IBOutlet weak var starExecuteBTN: NSButton!
+    @IBOutlet weak var sourceMessageLBL: NSTextField!
+    @IBOutlet weak var targetMessageLBL: NSTextField!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var outFolderNameTF: NSTextField!
     @IBOutlet weak var outPathTF: NSTextField!
@@ -78,20 +81,25 @@ class YQMainViewController: NSViewController {
     }
     
     @IBAction func startAction(_ sender: NSButton) {
+        starExecute()
         let targetKeyValueModels = allKeyValueModels(targetDataList)
-        targetKeyValueModels.forEach({ (targetKeyValueModel) in
-            allKeyValueModels(sourceDataList, forEach: { (sourceKeyValueModel) in
-                if sourceKeyValueModel.key == targetKeyValueModel.chValue {
-                    if let path = sourceKeyValueModel.filePath,
-                        let range = sourceKeyValueModel.range {
-                        var content = try? String.init(contentsOfFile: path, encoding: String.Encoding.utf8)
-                        content = ((content ?? "") as NSString).replacingOccurrences(of: sourceKeyValueModel.key, with: targetKeyValueModel.key, options: .anchored, range: range)
-                        try? content?.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
+        DispatchQueue.global().async {
+            targetKeyValueModels.forEach({ (targetKeyValueModel) in
+                self.showMessage("正在处理:" + targetKeyValueModel.key, label: self.targetMessageLBL)
+                self.allKeyValueModels(self.sourceDataList, forEach: { (sourceKeyValueModel) in
+                    if sourceKeyValueModel.key == targetKeyValueModel.chValue {
+                        self.showMessage("正在处理:" + sourceKeyValueModel.key, label: self.sourceMessageLBL)
+                        if let path = sourceKeyValueModel.filePath,
+                            let range = sourceKeyValueModel.range {
+                            var content = try? String.init(contentsOfFile: path, encoding: String.Encoding.utf8)
+                            content = ((content ?? "") as NSString).replacingOccurrences(of: sourceKeyValueModel.key, with: targetKeyValueModel.key, options: .anchored, range: range)
+                            try? content?.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
+                        }
                     }
-                }
+                })
             })
-            return;
-        })
+            self.endExecute()
+        }
     }
     
     @IBAction func selectPathAction(_ sender: NSButton) {
@@ -139,6 +147,36 @@ class YQMainViewController: NSViewController {
 
 // MARK: - private Action
 extension YQMainViewController {
+    
+    /// 开始执行
+    private func starExecute() {
+        DispatchQueue.main.async {
+            self.starExecuteBTN.isHidden = true
+        }
+        showMessage("开始处理", label: self.targetMessageLBL)
+        showMessage("开始处理", label: self.sourceMessageLBL)
+    }
+    
+    /// 结束执行
+    private func endExecute() {
+        DispatchQueue.main.async {
+            self.starExecuteBTN.isHidden = false
+        }
+        showMessage("处理完成", label: self.targetMessageLBL)
+        showMessage("处理完成", label: self.sourceMessageLBL)
+    }
+    
+    /// 显示信息
+    ///
+    /// - Parameters:
+    ///   - message: 信息
+    ///   - label: 标签
+    private func showMessage(_ message: String, label: NSTextField) {
+        DispatchQueue.main.async {
+            label.stringValue = message
+        }
+    }
+    
     @discardableResult
     private func allKeyValueModels(_ fileModels: [YQFileModel], forEach: ((KeyValueModel) -> Void)? = nil) -> [KeyValueModel] {
         var keyValueModels = [KeyValueModel]()
