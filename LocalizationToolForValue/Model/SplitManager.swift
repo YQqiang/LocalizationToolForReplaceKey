@@ -45,10 +45,26 @@ final class SplitManager {
 
 extension SplitManager {
     
+    private func splitStrings(_ fileModel: YQFileModel, separateStr: String) -> [KeyValueModel] {
+        let content = try? String.init(contentsOfFile: fileModel.filePath, encoding: String.Encoding.utf8)
+        let arr = content?.components(separatedBy: "\n")
+        var sourceKeyValueModels = [KeyValueModel]()
+        arr?.forEach({ (str) in
+            let keyValue = str.components(separatedBy: separateStr)
+            if keyValue.count == 2 {
+                sourceKeyValueModels.append(KeyValueModel(key: keyValue.first!, chValue: keyValue.last!, enValue: keyValue.last!, geValue: "", jpValue: ""))
+            }
+        })
+        return sourceKeyValueModels
+    }
+    
     private func split(_ fileModel: YQFileModel, splitFileType: SplitFileType, forEach: ((KeyValueModel) -> Void)?) -> [KeyValueModel] {
         switch splitFileType {
         case .strings:
-            return splitStrings(fileModel, forEach: forEach)
+            if let _ = forEach {
+                return splitStrings(fileModel, forEach: forEach)
+            }
+            return splitStrings(fileModel, separateStr: "\" = \"")
         case .json:
             return splitJson(fileModel)
         case .codeFileType(codeFileType: let type):
@@ -95,14 +111,12 @@ extension SplitManager {
             if let checkResults = matches {
                 for checkResult in checkResults {
                     let key = (content as NSString).substring(with: checkResult.range)
-                    if !key.hasPrefix("I18N") {
-                        let keyValueModel = KeyValueModel(key: key, chValue: "", enValue: "", geValue: "", jpValue: "")
-                        keyValueModel.filePath = fileModel.filePath
-                        keyValueModel.range = checkResult.range
-                        sourceKeyValueModels.append(keyValueModel)
-                        if let closure = forEach {
-                            closure(keyValueModel)
-                        }
+                    let keyValueModel = KeyValueModel(key: key, chValue: "", enValue: "", geValue: "", jpValue: "")
+                    keyValueModel.filePath = fileModel.filePath
+                    keyValueModel.range = checkResult.range
+                    sourceKeyValueModels.append(keyValueModel)
+                    if let closure = forEach {
+                        closure(keyValueModel)
                     }
                 }
             }
