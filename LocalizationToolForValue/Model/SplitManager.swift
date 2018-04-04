@@ -25,7 +25,7 @@ final class SplitManager {
     static let shared = SplitManager.init()
     private init(){}
     
-    func split(_ fileModel: YQFileModel) -> [KeyValueModel] {
+    func split(_ fileModel: YQFileModel, forEach: ((KeyValueModel) -> Void)? = nil) -> [KeyValueModel] {
         var splitFiletype: SplitFileType = .strings
         if ["strings", "txt"].contains(fileModel.fileExtension.lowercased()) {
             splitFiletype = .strings
@@ -39,20 +39,20 @@ final class SplitManager {
         if ["m"].contains(fileModel.fileExtension.lowercased()) {
             splitFiletype = .codeFileType(codeFileType: .OC)
         }
-        return split(fileModel, splitFileType: splitFiletype)
+        return split(fileModel, splitFileType: splitFiletype, forEach: forEach)
     }
 }
 
 extension SplitManager {
     
-    private func split(_ fileModel: YQFileModel, splitFileType: SplitFileType) -> [KeyValueModel] {
+    private func split(_ fileModel: YQFileModel, splitFileType: SplitFileType, forEach: ((KeyValueModel) -> Void)?) -> [KeyValueModel] {
         switch splitFileType {
         case .strings:
-            return splitStrings(fileModel)
+            return splitStrings(fileModel, forEach: forEach)
         case .json:
             return splitJson(fileModel)
         case .codeFileType(codeFileType: let type):
-            return splitCodeFile(fileModel, codeFileType: type)
+            return splitCodeFile(fileModel, codeFileType: type, forEach: forEach)
         default:
             break
         }
@@ -73,35 +73,24 @@ extension SplitManager {
         return sourceKeyValueModels
     }
     
-    private func splitStrings(_ fileModel: YQFileModel) -> [KeyValueModel] {
-        let content = try? String.init(contentsOfFile: fileModel.filePath, encoding: String.Encoding.utf8)
-        var sourceKeyValueModels = [KeyValueModel]()
-        if let content = content {
-            let regular = try? NSRegularExpression(pattern: "(?<=\").*?(?=\" = \")", options: .caseInsensitive)
-            let matches = regular?.matches(in: content, options: .reportProgress, range: NSRange.init(location: 0, length: content.count))
-            if let checkResults = matches {
-                for checkResult in checkResults {
-                    let key = (content as NSString).substring(with: checkResult.range)
-                    if !key.hasPrefix("I18N") {
-                        let keyValueModel = KeyValueModel(key: key, chValue: "", enValue: "", geValue: "", jpValue: "")
-                        keyValueModel.filePath = fileModel.filePath
-                        keyValueModel.range = checkResult.range
-                        sourceKeyValueModels.append(keyValueModel)
-                    }
-                }
-            }
-        }
-        return sourceKeyValueModels
+    private func splitStrings(_ fileModel: YQFileModel, forEach: ((KeyValueModel) -> Void)?) -> [KeyValueModel] {
+        return enumeratorFile(fileModel, prefix: "\"", suffix: "\" = \"", forEach: forEach)
     }
     
-    private func splitCodeFile(_ fileModel: YQFileModel, codeFileType: CodeFileType) -> [KeyValueModel] {
+    private func splitCodeFile(_ fileModel: YQFileModel, codeFileType: CodeFileType, forEach: ((KeyValueModel) -> Void)?) -> [KeyValueModel] {
+        var prefix = "NSLocalizedString\\(@\""
+        let suffix = "\","
+        if codeFileType == .Swift {
+            prefix = "NSLocalizedString\\(\""
+        }
+        return enumeratorFile(fileModel, prefix: prefix, suffix: suffix, forEach: forEach)
+    }
+    
+    private func enumeratorFile(_ fileModel: YQFileModel, prefix: String, suffix: String, forEach: ((KeyValueModel) -> Void)?) -> [KeyValueModel] {
         let content = try? String.init(contentsOfFile: fileModel.filePath, encoding: String.Encoding.utf8)
         var sourceKeyValueModels = [KeyValueModel]()
         if let content = content {
-            var regular = try? NSRegularExpression(pattern: "(?<=NSLocalizedString\\(@\").*?(?=\",)", options: .caseInsensitive)
-            if codeFileType == .Swift {
-                regular = try? NSRegularExpression(pattern: "(?<=NSLocalizedString\\(\").*?(?=\",)", options: .caseInsensitive)
-            }
+            let regular = try? NSRegularExpression(pattern: "(?<=\(prefix)).*?(?=\(suffix))", options: .caseInsensitive)
             let matches = regular?.matches(in: content, options: .reportProgress, range: NSRange.init(location: 0, length: content.count))
             if let checkResults = matches {
                 for checkResult in checkResults {
@@ -111,6 +100,9 @@ extension SplitManager {
                         keyValueModel.filePath = fileModel.filePath
                         keyValueModel.range = checkResult.range
                         sourceKeyValueModels.append(keyValueModel)
+                        if let closure = forEach {
+                            closure(keyValueModel)
+                        }
                     }
                 }
             }

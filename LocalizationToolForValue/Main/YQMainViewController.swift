@@ -80,35 +80,17 @@ class YQMainViewController: NSViewController {
     @IBAction func startAction(_ sender: NSButton) {
         let targetKeyValueModels = allKeyValueModels(targetDataList)
         targetKeyValueModels.forEach({ (targetKeyValueModel) in
-            sourceDataList.forEach { (fileModelSuper) in
-                fileModelSuper.enumeratorFile({ (filePath) in
-                    let fileModel = YQFileModel(filePath: filePath)
-                    let content = try? String.init(contentsOfFile: fileModel.filePath, encoding: String.Encoding.utf8)
-                    if let content = content {
-                        let regular = try? NSRegularExpression(pattern: "(?<=\").*?(?=\" = \")", options: .caseInsensitive)
-                        let matches = regular?.matches(in: content, options: .reportProgress, range: NSRange.init(location: 0, length: content.count))
-                        if let checkResults = matches {
-                            for checkResult in checkResults {
-                                let key = (content as NSString).substring(with: checkResult.range)
-                                if !key.hasPrefix("I18N") {
-                                    let sourceKeyValueModel = KeyValueModel(key: key, chValue: "", enValue: "", geValue: "", jpValue: "")
-                                    sourceKeyValueModel.filePath = fileModel.filePath
-                                    sourceKeyValueModel.range = checkResult.range
-                                    if sourceKeyValueModel.key == targetKeyValueModel.chValue {
-                                        if let path = sourceKeyValueModel.filePath,
-                                            let range = sourceKeyValueModel.range {
-                                            var content = try? String.init(contentsOfFile: path, encoding: String.Encoding.utf8)
-                                            content = ((content ?? "") as NSString).replacingOccurrences(of: sourceKeyValueModel.key, with: targetKeyValueModel.key, options: .anchored, range: range)
-                                            try? content?.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
-                                        }
-                                    }
-                                    
-                                }
-                            }
-                        }
+            allKeyValueModels(sourceDataList, forEach: { (sourceKeyValueModel) in
+                if sourceKeyValueModel.key == targetKeyValueModel.chValue {
+                    if let path = sourceKeyValueModel.filePath,
+                        let range = sourceKeyValueModel.range {
+                        var content = try? String.init(contentsOfFile: path, encoding: String.Encoding.utf8)
+                        content = ((content ?? "") as NSString).replacingOccurrences(of: sourceKeyValueModel.key, with: targetKeyValueModel.key, options: .anchored, range: range)
+                        try? content?.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
                     }
-                })
-            }
+                }
+            })
+            return;
         })
     }
     
@@ -157,12 +139,12 @@ class YQMainViewController: NSViewController {
 
 // MARK: - private Action
 extension YQMainViewController {
-    
-    private func allKeyValueModels(_ fileModels: [YQFileModel]) -> [KeyValueModel] {
+    @discardableResult
+    private func allKeyValueModels(_ fileModels: [YQFileModel], forEach: ((KeyValueModel) -> Void)? = nil) -> [KeyValueModel] {
         var keyValueModels = [KeyValueModel]()
         fileModels.forEach { (fileModel) in
             fileModel.enumeratorFile({ (filePath) in
-                let models = SplitManager.shared.split(YQFileModel(filePath: filePath))
+                let models = SplitManager.shared.split(YQFileModel(filePath: filePath), forEach: forEach)
                 keyValueModels = keyValueModels + models
             })
         }
