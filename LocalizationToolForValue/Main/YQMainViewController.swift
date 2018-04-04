@@ -23,6 +23,7 @@ class YQMainViewController: NSViewController {
     @IBOutlet weak var bgGradientView: YQGradientView!
     
     @IBOutlet weak var starExecuteBTN: NSButton!
+    @IBOutlet weak var executeIndicator: NSProgressIndicator!
     @IBOutlet weak var sourceMessageLBL: NSTextField!
     @IBOutlet weak var targetMessageLBL: NSTextField!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
@@ -152,6 +153,8 @@ extension YQMainViewController {
     private func starExecute() {
         DispatchQueue.main.async {
             self.starExecuteBTN.isHidden = true
+            self.executeIndicator.isHidden = false
+            self.executeIndicator.startAnimation(nil)
         }
         showMessage("开始处理", label: self.targetMessageLBL)
         showMessage("开始处理", label: self.sourceMessageLBL)
@@ -161,6 +164,8 @@ extension YQMainViewController {
     private func endExecute() {
         DispatchQueue.main.async {
             self.starExecuteBTN.isHidden = false
+            self.executeIndicator.isHidden = true
+            self.executeIndicator.stopAnimation(nil)
         }
         showMessage("处理完成", label: self.targetMessageLBL)
         showMessage("处理完成", label: self.sourceMessageLBL)
