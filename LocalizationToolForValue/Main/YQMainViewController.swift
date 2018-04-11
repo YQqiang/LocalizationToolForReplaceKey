@@ -87,7 +87,7 @@ class YQMainViewController: NSViewController {
         DispatchQueue.global().async {
             targetKeyValueModels.forEach({ (targetKeyValueModel) in
                 self.showMessage("正在处理:" + targetKeyValueModel.key, label: self.targetMessageLBL)
-                self.allKeyValueModels(self.sourceDataList, forEach: { (sourceKeyValueModel) in
+                self.allKeyValueModels(self.sourceDataList, forEach: { (sourceKeyValueModel) -> Bool in
                     if sourceKeyValueModel.key == targetKeyValueModel.chValue {
                         self.showMessage("正在处理:" + sourceKeyValueModel.key, label: self.sourceMessageLBL)
                         if let path = sourceKeyValueModel.filePath,
@@ -95,8 +95,10 @@ class YQMainViewController: NSViewController {
                             var content = try? String.init(contentsOfFile: path, encoding: String.Encoding.utf8)
                             content = ((content ?? "") as NSString).replacingOccurrences(of: sourceKeyValueModel.key, with: targetKeyValueModel.key, options: .anchored, range: range)
                             try? content?.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
+                            return true
                         }
                     }
+                    return false
                 })
             })
             self.endExecute()
@@ -183,7 +185,7 @@ extension YQMainViewController {
     }
     
     @discardableResult
-    private func allKeyValueModels(_ fileModels: [YQFileModel], forEach: ((KeyValueModel) -> Void)? = nil) -> [KeyValueModel] {
+    private func allKeyValueModels(_ fileModels: [YQFileModel], forEach: ((KeyValueModel) -> Bool)? = nil) -> [KeyValueModel] {
         var keyValueModels = [KeyValueModel]()
         fileModels.forEach { (fileModel) in
             fileModel.enumeratorFile({ (filePath) in

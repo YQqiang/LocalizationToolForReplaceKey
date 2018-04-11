@@ -25,7 +25,7 @@ final class SplitManager {
     static let shared = SplitManager.init()
     private init(){}
     
-    func split(_ fileModel: YQFileModel, forEach: ((KeyValueModel) -> Void)? = nil) -> [KeyValueModel] {
+    func split(_ fileModel: YQFileModel, forEach: ((KeyValueModel) -> Bool)? = nil) -> [KeyValueModel] {
         var splitFiletype: SplitFileType = .strings
         if ["strings", "txt"].contains(fileModel.fileExtension.lowercased()) {
             splitFiletype = .strings
@@ -58,7 +58,7 @@ extension SplitManager {
         return sourceKeyValueModels
     }
     
-    private func split(_ fileModel: YQFileModel, splitFileType: SplitFileType, forEach: ((KeyValueModel) -> Void)?) -> [KeyValueModel] {
+    private func split(_ fileModel: YQFileModel, splitFileType: SplitFileType, forEach: ((KeyValueModel) -> Bool)?) -> [KeyValueModel] {
         switch splitFileType {
         case .strings:
             if let _ = forEach {
@@ -89,11 +89,11 @@ extension SplitManager {
         return sourceKeyValueModels
     }
     
-    private func splitStrings(_ fileModel: YQFileModel, forEach: ((KeyValueModel) -> Void)?) -> [KeyValueModel] {
+    private func splitStrings(_ fileModel: YQFileModel, forEach: ((KeyValueModel) -> Bool)?) -> [KeyValueModel] {
         return enumeratorFile(fileModel, prefix: "\"", suffix: "\" = \"", forEach: forEach)
     }
     
-    private func splitCodeFile(_ fileModel: YQFileModel, codeFileType: CodeFileType, forEach: ((KeyValueModel) -> Void)?) -> [KeyValueModel] {
+    private func splitCodeFile(_ fileModel: YQFileModel, codeFileType: CodeFileType, forEach: ((KeyValueModel) -> Bool)?) -> [KeyValueModel] {
         var prefix = "NSLocalizedString\\(@\""
         let suffix = "\","
         if codeFileType == .Swift {
@@ -102,7 +102,7 @@ extension SplitManager {
         return enumeratorFile(fileModel, prefix: prefix, suffix: suffix, forEach: forEach)
     }
     
-    private func enumeratorFile(_ fileModel: YQFileModel, prefix: String, suffix: String, forEach: ((KeyValueModel) -> Void)?) -> [KeyValueModel] {
+    private func enumeratorFile(_ fileModel: YQFileModel, prefix: String, suffix: String, loop: Bool = true, forEach: ((KeyValueModel) -> Bool)?) -> [KeyValueModel] {
         let content = try? String.init(contentsOfFile: fileModel.filePath, encoding: String.Encoding.utf8)
         var sourceKeyValueModels = [KeyValueModel]()
         if let content = content {
@@ -116,7 +116,12 @@ extension SplitManager {
                     keyValueModel.range = checkResult.range
                     sourceKeyValueModels.append(keyValueModel)
                     if let closure = forEach {
-                        closure(keyValueModel)
+                        let haveTargetKey = closure(keyValueModel)
+                        if haveTargetKey && loop {
+                            for _ in 0..<checkResults.count {
+                                _ = enumeratorFile(fileModel, prefix: prefix, suffix: suffix, loop: false, forEach: closure)
+                            }
+                        }
                     }
                 }
             }
