@@ -1,7 +1,6 @@
-# LocalizationToolForValue
-![](https://github.com/YQqiang/LocalizationToolForValue/blob/master/LocalizationTooForValue.png)
+# LocalizationToolForReplaceKey
+![](https://github.com/YQqiang/LocalizationToolForValue/blob/master/LocalizationTooForReplaceKey.png)
 
-![](https://github.com/YQqiang/LocalizationToolForValue/blob/master/LocalizationTooForValue2.png)
+![](https://github.com/YQqiang/LocalizationToolForValue/blob/master/LocalizationTooForReplaceKey2.png)
 
-![](https://github.com/YQqiang/LocalizationToolForValue/blob/master/LocalizationTooForValue3.png)
 
