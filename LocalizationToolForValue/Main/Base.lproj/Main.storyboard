@@ -715,8 +715,8 @@
                                 <rect key="frame" x="0.0" y="100" width="700" height="320"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6qy-LM-hqn">
-                                        <rect key="frame" x="254" y="293" width="192" height="19"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="LocalizationToolForValue" id="Wmn-WK-gXS">
+                                        <rect key="frame" x="231" y="293" width="239" height="19"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="LocalizationToolForReplaceKey" id="Wmn-WK-gXS">
                                             <font key="font" metaFont="systemSemibold" size="16"/>
                                             <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -1045,6 +1045,14 @@
                                     <constraint firstItem="IDn-OD-Yda" firstAttribute="trailing" secondItem="cjQ-Dv-tBn" secondAttribute="trailing" id="z1f-6m-ifX"/>
                                     <constraint firstItem="MUn-Ym-ozG" firstAttribute="leading" secondItem="S63-gd-HSz" secondAttribute="trailing" constant="8" id="zgR-EC-iZi"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lowGradientColor">
+                                        <color key="value" red="0.0010366318747401237" green="0.61358815431594849" blue="0.57426118850708008" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="highGradientColor">
+                                        <color key="value" red="0.0" green="0.47058823529411764" blue="0.5725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="mSu-IX-a3P">
                                 <rect key="frame" x="0.0" y="0.0" width="700" height="100"/>
