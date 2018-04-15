@@ -49,6 +49,7 @@ final class YQDragDropView: NSView {
     fileprivate lazy var imageV: NSImageView = {
         let imageV = NSImageView()
         imageV.isEnabled = false
+        imageV.unregisterDraggedTypes()
         addSubview(imageV)
         return imageV
     }()
