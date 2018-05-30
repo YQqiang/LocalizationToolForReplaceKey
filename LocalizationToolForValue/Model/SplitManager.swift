@@ -19,6 +19,7 @@ enum SplitFileType {
     case json
     case xls
     case db
+    case xml
 }
 
 final class SplitManager {
@@ -38,6 +39,9 @@ final class SplitManager {
         }
         if ["m"].contains(fileModel.fileExtension.lowercased()) {
             splitFiletype = .codeFileType(codeFileType: .OC)
+        }
+        if ["xml"].contains(fileModel.fileExtension.lowercased()) {
+            splitFiletype = .xml
         }
         return split(fileModel, splitFileType: splitFiletype, forEach: forEach)
     }
@@ -69,10 +73,38 @@ extension SplitManager {
             return splitJson(fileModel)
         case .codeFileType(codeFileType: let type):
             return splitCodeFile(fileModel, codeFileType: type, forEach: forEach)
+        case .xml:
+            return splitXml(fileModel)
         default:
             break
         }
         return [KeyValueModel]()
+    }
+    
+    private func splitXml(_ fileModel: YQFileModel) -> [KeyValueModel] {
+        var sourceKeyValueModels = [KeyValueModel]()
+        let jsonContent = try? String.init(contentsOfFile: fileModel.filePath)
+        if let lines = jsonContent?.components(separatedBy: "\n") {
+            for line in lines {
+                let keyValue = line.components(separatedBy: "\">")
+                if keyValue.count == 2 {
+                    var keyP = keyValue.first!.trimmingCharacters(in: .whitespaces)
+                    var valueS = keyValue.last!
+                    var dropString = "<string name=\""
+                    if keyP.hasPrefix(dropString) {
+                        keyP = keyP.replacingOccurrences(of: dropString, with: "")
+                    }
+                    
+                    dropString = "</string>"
+                    if valueS.hasSuffix(dropString) {
+                        valueS = valueS.replacingOccurrences(of: dropString, with: "")
+                    }
+                    let keyValueModel = KeyValueModel(key: keyP, chValue: valueS, enValue: valueS, geValue: valueS, jpValue: valueS)
+                    sourceKeyValueModels.append(keyValueModel)
+                }
+            }
+        }
+        return sourceKeyValueModels
     }
     
     private func splitJson(_ fileModel: YQFileModel) -> [KeyValueModel] {
