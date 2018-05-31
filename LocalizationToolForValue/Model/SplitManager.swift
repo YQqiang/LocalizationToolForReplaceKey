@@ -50,15 +50,29 @@ final class SplitManager {
 extension SplitManager {
     
     private func splitStrings(_ fileModel: YQFileModel, separateStr: String) -> [KeyValueModel] {
-        let content = try? String.init(contentsOfFile: fileModel.filePath, encoding: String.Encoding.utf8)
-        let arr = content?.components(separatedBy: "\n")
         var sourceKeyValueModels = [KeyValueModel]()
-        arr?.forEach({ (str) in
-            let keyValue = str.components(separatedBy: separateStr)
-            if keyValue.count == 2 {
-                sourceKeyValueModels.append(KeyValueModel(key: keyValue.first!, chValue: keyValue.last!, enValue: keyValue.last!, geValue: "", jpValue: ""))
+        let jsonContent = try? String.init(contentsOfFile: fileModel.filePath)
+        if let lines = jsonContent?.components(separatedBy: "\n") {
+            for (index, line) in lines.enumerated() {
+                let keyValue = line.components(separatedBy: "\" = \"")
+                if keyValue.count == 2 {
+                    var keyP = keyValue.first!.trimmingCharacters(in: .whitespaces)
+                    var valueS = keyValue.last!
+                    var dropString = "\""
+                    if keyP.hasPrefix(dropString) {
+                        keyP = keyP.replacingOccurrences(of: dropString, with: "")
+                    }
+                    
+                    dropString = "\";"
+                    if valueS.hasSuffix(dropString) {
+                        valueS = valueS.replacingOccurrences(of: dropString, with: "")
+                    }
+                    let keyValueModel = KeyValueModel(key: keyP, chValue: valueS, enValue: valueS, geValue: valueS, jpValue: valueS)
+                    keyValueModel.filePath = "\(index)"
+                    sourceKeyValueModels.append(keyValueModel)
+                }
             }
-        })
+        }
         return sourceKeyValueModels
     }
     

@@ -84,6 +84,22 @@ class YQMainViewController: NSViewController {
     @IBAction func startAction(_ sender: NSButton) {
         starExecute()
         let targetKeyValueModels = allKeyValueModels(targetDataList)
+        let sourceValueModels = allKeyValueModels(sourceDataList)
+        var repeatKeys: [String] = []
+        targetKeyValueModels.forEach { (targetModel) in
+            sourceValueModels.forEach({ (sourceModel) in
+                if targetModel.chValue != sourceModel.chValue && targetModel.key == sourceModel.key &&
+                    targetModel.filePath! != sourceModel.filePath! &&
+                    !repeatKeys.contains(sourceModel.key) &&
+                    !repeatKeys.contains(targetModel.key) {
+                    repeatKeys.append(sourceModel.key)
+                    repeatKeys.append(targetModel.key)
+                    print("\(targetModel.key) --- \(sourceModel.key) --- \(sourceModel.chValue)")
+                }
+            })
+        }
+        self.endExecute()
+        return;
         DispatchQueue.global().async {
             targetKeyValueModels.forEach({ (targetKeyValueModel) in
                 self.showMessage("正在处理:" + targetKeyValueModel.key, label: self.targetMessageLBL)
