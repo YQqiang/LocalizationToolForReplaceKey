@@ -83,25 +83,22 @@ class YQMainViewController: NSViewController {
     
     @IBAction func startAction(_ sender: NSButton) {
         starExecute()
-        let targetKeyValueModels = allKeyValueModels(targetDataList)
         DispatchQueue.global().async {
+            let targetKeyValueModels = self.allKeyValueModels(self.targetDataList)
+            let sourceKeyValueModels = self.allKeyValueModels(self.sourceDataList)
             targetKeyValueModels.forEach({ (targetKeyValueModel) in
                 self.showMessage("正在处理:" + targetKeyValueModel.key, label: self.targetMessageLBL)
-                self.allKeyValueModels(self.sourceDataList, forEach: { (sourceKeyValueModel) -> Bool in
-                    if !sourceKeyValueModel.key.lowercased().hasPrefix("i18n") {
-                        if sourceKeyValueModel.key == targetKeyValueModel.chValue {
-                            self.showMessage("正在处理:" + sourceKeyValueModel.key, label: self.sourceMessageLBL)
-                            if let path = sourceKeyValueModel.filePath,
-                                let range = sourceKeyValueModel.range {
-                                var content = try? String.init(contentsOfFile: path, encoding: String.Encoding.utf8)
-                                content = ((content ?? "") as NSString).replacingOccurrences(of: sourceKeyValueModel.key, with: targetKeyValueModel.key, options: .anchored, range: range)
-                                try? content?.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
-                                return true
-                            }
-                        }
+                var isUsedKey = false
+                for sourceKeyValueModel in sourceKeyValueModels {
+                    self.showMessage("正在处理:" + sourceKeyValueModel.key, label: self.sourceMessageLBL)
+                    if targetKeyValueModel.key == sourceKeyValueModel.key {
+                        isUsedKey = true
+                        break;
                     }
-                    return false
-                })
+                }
+                if !isUsedKey {
+                    print("---- \(targetKeyValueModel.key) --- \(targetKeyValueModel.chValue)")
+                }
             })
             self.endExecute()
         }
