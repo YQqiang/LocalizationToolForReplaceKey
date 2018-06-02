@@ -14,7 +14,7 @@ class YQMainViewController: NSViewController {
     @IBOutlet weak var targetTableView: NSTableView!
     
     /// 局部常量
-    private let settingViewHeight: CGFloat = 100
+    private let settingViewHeight: CGFloat = 300
     
     /// 控件属性
     @IBOutlet weak var settingView: NSView!

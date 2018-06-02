@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
@@ -708,11 +708,11 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="YQMainViewController" customModule="LocalizationToolForReplaceKey" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="700" height="420"/>
+                        <rect key="frame" x="0.0" y="0.0" width="700" height="620"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="2Mw-rp-IlY" customClass="YQGradientView" customModule="LocalizationToolForReplaceKey" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="100" width="700" height="320"/>
+                                <rect key="frame" x="0.0" y="300" width="700" height="320"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6qy-LM-hqn">
                                         <rect key="frame" x="231" y="293" width="239" height="19"/>
@@ -831,7 +831,7 @@
                                                     <color key="backgroundColor" red="0.18046289369999999" green="0.76571978139999997" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                     <tableColumns>
-                                                        <tableColumn width="331" minWidth="40" maxWidth="1000" id="PJO-nC-RbG">
+                                                        <tableColumn identifier="" width="331" minWidth="40" maxWidth="1000" id="PJO-nC-RbG">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -891,7 +891,7 @@
                                                     <color key="backgroundColor" red="0.18046289369999999" green="0.76571978139999997" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                     <tableColumns>
-                                                        <tableColumn width="330" minWidth="40" maxWidth="1000" id="PWi-YF-g1f">
+                                                        <tableColumn identifier="" width="330" minWidth="40" maxWidth="1000" id="PWi-YF-g1f">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1055,10 +1055,10 @@
                                 </userDefinedRuntimeAttributes>
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="mSu-IX-a3P">
-                                <rect key="frame" x="0.0" y="0.0" width="700" height="100"/>
+                                <rect key="frame" x="0.0" y="0.0" width="700" height="300"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HCb-h3-dvA">
-                                        <rect key="frame" x="30" y="75" width="101" height="17"/>
+                                        <rect key="frame" x="30" y="275" width="101" height="17"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="输出文件夹名称:" id="qDS-pD-0sb">
                                             <font key="font" size="13" name=".PingFangSC-Regular"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1066,7 +1066,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gOd-pR-Huo">
-                                        <rect key="frame" x="30" y="42" width="101" height="17"/>
+                                        <rect key="frame" x="30" y="242" width="101" height="17"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="输入文件路径:" id="8m4-5d-v9a">
                                             <font key="font" size="13" name=".PingFangSC-Regular"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1074,7 +1074,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="d1v-e1-lYK">
-                                        <rect key="frame" x="137" y="73" width="460" height="22"/>
+                                        <rect key="frame" x="137" y="273" width="460" height="22"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="raF-Jp-ubF">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1082,7 +1082,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9gh-w7-6fK">
-                                        <rect key="frame" x="137" y="39" width="460" height="22"/>
+                                        <rect key="frame" x="137" y="239" width="460" height="22"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="7k3-5S-wSI">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1090,7 +1090,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Qes-2d-ev3">
-                                        <rect key="frame" x="607" y="32" width="67" height="32"/>
+                                        <rect key="frame" x="607" y="232" width="67" height="32"/>
                                         <buttonCell key="cell" type="push" title="选择" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fuZ-Qc-P5z">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" size="13" name=".PingFangSC-Regular"/>
@@ -1100,7 +1100,7 @@
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iFF-cl-lKR">
-                                        <rect key="frame" x="567" y="3" width="107" height="32"/>
+                                        <rect key="frame" x="567" y="203" width="107" height="32"/>
                                         <buttonCell key="cell" type="push" title="恢复默认值" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ctt-B0-qPH">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" size="13" name=".PingFangSC-Regular"/>
@@ -1109,22 +1109,106 @@
                                             <action selector="restoreDefaultAction:" target="XfG-lQ-9wD" id="QvZ-0r-ekG"/>
                                         </connections>
                                     </button>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="lDm-JA-Fbd">
+                                        <rect key="frame" x="32" y="10" width="636" height="200"/>
+                                        <subviews>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Tj0-gJ-BoE">
+                                                <rect key="frame" x="-1" y="149" width="269" height="18"/>
+                                                <buttonCell key="cell" type="radio" title="输出资源文件中 👉'I18N_' 开头👈 的词条" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="ZFk-fr-XKP">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                                </buttonCell>
+                                            </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zbS-cF-IYj">
+                                                <rect key="frame" x="297" y="149" width="287" height="18"/>
+                                                <buttonCell key="cell" type="radio" title="输出资源文件中 👉非 'I18N_' 开头👈 的词条" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="IEz-8z-JSt">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                                </buttonCell>
+                                            </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Kd6-Ma-wf5">
+                                                <rect key="frame" x="-1" y="117" width="314" height="18"/>
+                                                <buttonCell key="cell" type="radio" title="输出资源文件中 👉key相同  value相同👈 的词条" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="0YM-yI-Tpt">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                                </buttonCell>
+                                            </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ENp-QR-lWT">
+                                                <rect key="frame" x="318" y="117" width="314" height="18"/>
+                                                <buttonCell key="cell" type="radio" title="输出资源文件中 👉key相同  value不同👈 的词条" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="nOH-Iy-UKR">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                                </buttonCell>
+                                            </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Yi6-aa-ApZ">
+                                                <rect key="frame" x="-1" y="85" width="314" height="18"/>
+                                                <buttonCell key="cell" type="radio" title="输出资源文件中 👉key不同  value相同👈 的词条" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="jSO-8h-OS1">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                                </buttonCell>
+                                            </button>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="duy-tT-WcD">
+                                                <rect key="frame" x="-2" y="182" width="66" height="18"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="功能选择:" id="nhq-8a-hVM">
+                                                    <font key="font" size="14" name=".PingFangSC-Regular"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oNW-xq-fNH">
+                                                <rect key="frame" x="-1" y="53" width="450" height="18"/>
+                                                <buttonCell key="cell" type="radio" title="输出 👉目标文件中存在(页面右侧), 源文件中不存在(页面左侧)👈 的词条" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="C78-O9-wBR">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                                </buttonCell>
+                                            </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ifE-TE-dqw">
+                                                <rect key="frame" x="-1" y="21" width="628" height="18"/>
+                                                <buttonCell key="cell" type="radio" title="使用 目标文件中 key-value 的 value 匹配源文件中的 key, 并使用目标文件的 key 替换源文件中的 key" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="dM7-yL-2Qs">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                                </buttonCell>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="ifE-TE-dqw" firstAttribute="leading" secondItem="oNW-xq-fNH" secondAttribute="leading" id="3ej-WK-YnT"/>
+                                            <constraint firstItem="zbS-cF-IYj" firstAttribute="leading" secondItem="Tj0-gJ-BoE" secondAttribute="trailing" constant="32" id="65o-Qp-PjI"/>
+                                            <constraint firstItem="Tj0-gJ-BoE" firstAttribute="top" secondItem="duy-tT-WcD" secondAttribute="bottom" constant="16" id="71e-Sh-SJz"/>
+                                            <constraint firstItem="Yi6-aa-ApZ" firstAttribute="leading" secondItem="Kd6-Ma-wf5" secondAttribute="leading" id="LKn-kJ-jrX"/>
+                                            <constraint firstItem="ifE-TE-dqw" firstAttribute="top" secondItem="oNW-xq-fNH" secondAttribute="bottom" constant="16" id="Typ-8q-wce"/>
+                                            <constraint firstItem="oNW-xq-fNH" firstAttribute="top" secondItem="Yi6-aa-ApZ" secondAttribute="bottom" constant="16" id="V7E-9t-cD7"/>
+                                            <constraint firstItem="zbS-cF-IYj" firstAttribute="centerY" secondItem="Tj0-gJ-BoE" secondAttribute="centerY" id="W9Q-kI-0pU"/>
+                                            <constraint firstItem="Kd6-Ma-wf5" firstAttribute="top" secondItem="Tj0-gJ-BoE" secondAttribute="bottom" constant="16" id="YCw-Rj-KVO"/>
+                                            <constraint firstItem="Yi6-aa-ApZ" firstAttribute="top" secondItem="Kd6-Ma-wf5" secondAttribute="bottom" constant="16" id="YuO-eD-GSe"/>
+                                            <constraint firstItem="Kd6-Ma-wf5" firstAttribute="leading" secondItem="Tj0-gJ-BoE" secondAttribute="leading" id="dF9-zu-Oq3"/>
+                                            <constraint firstItem="oNW-xq-fNH" firstAttribute="leading" secondItem="Yi6-aa-ApZ" secondAttribute="leading" id="g3b-V0-CvF"/>
+                                            <constraint firstItem="duy-tT-WcD" firstAttribute="top" secondItem="lDm-JA-Fbd" secondAttribute="top" id="kW5-U4-GJX"/>
+                                            <constraint firstAttribute="height" constant="200" id="kY7-t8-bpu"/>
+                                            <constraint firstItem="ENp-QR-lWT" firstAttribute="centerY" secondItem="Kd6-Ma-wf5" secondAttribute="centerY" id="lf2-Rz-wFl"/>
+                                            <constraint firstItem="ENp-QR-lWT" firstAttribute="leading" secondItem="Kd6-Ma-wf5" secondAttribute="trailing" constant="8" id="lwb-ug-xel"/>
+                                            <constraint firstItem="Tj0-gJ-BoE" firstAttribute="leading" secondItem="lDm-JA-Fbd" secondAttribute="leading" id="oY5-Fb-r4i"/>
+                                            <constraint firstItem="duy-tT-WcD" firstAttribute="leading" secondItem="lDm-JA-Fbd" secondAttribute="leading" id="oeF-0i-Icj"/>
+                                        </constraints>
+                                    </customView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="iFF-cl-lKR" firstAttribute="trailing" secondItem="Qes-2d-ev3" secondAttribute="trailing" id="0kr-0R-Tlf"/>
                                     <constraint firstItem="gOd-pR-Huo" firstAttribute="trailing" secondItem="HCb-h3-dvA" secondAttribute="trailing" id="21c-RT-RDA"/>
                                     <constraint firstItem="9gh-w7-6fK" firstAttribute="trailing" secondItem="d1v-e1-lYK" secondAttribute="trailing" id="4yu-0x-JT1"/>
                                     <constraint firstItem="d1v-e1-lYK" firstAttribute="leading" secondItem="HCb-h3-dvA" secondAttribute="trailing" constant="8" id="7QG-KV-G6r"/>
+                                    <constraint firstItem="lDm-JA-Fbd" firstAttribute="top" secondItem="iFF-cl-lKR" secondAttribute="bottom" id="8VF-xC-8dN"/>
                                     <constraint firstItem="Qes-2d-ev3" firstAttribute="leading" secondItem="9gh-w7-6fK" secondAttribute="trailing" constant="16" id="Bjb-M8-HvR"/>
                                     <constraint firstItem="gOd-pR-Huo" firstAttribute="leading" secondItem="HCb-h3-dvA" secondAttribute="leading" id="FpE-YB-aCi"/>
                                     <constraint firstItem="9gh-w7-6fK" firstAttribute="leading" secondItem="d1v-e1-lYK" secondAttribute="leading" id="H4g-YA-WkV"/>
                                     <constraint firstAttribute="trailing" secondItem="Qes-2d-ev3" secondAttribute="trailing" constant="32" id="HBO-eK-nXD"/>
                                     <constraint firstItem="iFF-cl-lKR" firstAttribute="top" secondItem="9gh-w7-6fK" secondAttribute="bottom" constant="8" id="NwH-xj-IpJ"/>
-                                    <constraint firstAttribute="height" constant="100" id="OY2-Ef-V1v"/>
+                                    <constraint firstAttribute="height" constant="300" id="OY2-Ef-V1v"/>
                                     <constraint firstItem="HCb-h3-dvA" firstAttribute="leading" secondItem="mSu-IX-a3P" secondAttribute="leading" constant="32" id="SRk-WA-ZmM"/>
                                     <constraint firstItem="gOd-pR-Huo" firstAttribute="top" secondItem="HCb-h3-dvA" secondAttribute="bottom" constant="16" id="Y3U-Og-Pre"/>
                                     <constraint firstItem="HCb-h3-dvA" firstAttribute="top" secondItem="mSu-IX-a3P" secondAttribute="top" constant="8" id="bL8-sL-QVu"/>
+                                    <constraint firstItem="lDm-JA-Fbd" firstAttribute="leading" secondItem="gOd-pR-Huo" secondAttribute="leading" id="cbz-dm-cfd"/>
                                     <constraint firstItem="Qes-2d-ev3" firstAttribute="centerY" secondItem="9gh-w7-6fK" secondAttribute="centerY" id="eBC-ur-BwX"/>
+                                    <constraint firstItem="lDm-JA-Fbd" firstAttribute="trailing" secondItem="iFF-cl-lKR" secondAttribute="trailing" id="oa3-wM-LE9"/>
                                     <constraint firstItem="9gh-w7-6fK" firstAttribute="centerY" secondItem="gOd-pR-Huo" secondAttribute="centerY" id="qxj-sL-r56"/>
                                     <constraint firstItem="d1v-e1-lYK" firstAttribute="centerY" secondItem="HCb-h3-dvA" secondAttribute="centerY" id="tOx-YE-qno"/>
                                 </constraints>
@@ -1159,7 +1243,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="189" y="655"/>
+            <point key="canvasLocation" x="200" y="812.5"/>
         </scene>
     </scenes>
     <resources>
