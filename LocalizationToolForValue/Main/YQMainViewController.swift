@@ -8,6 +8,23 @@
 
 import Cocoa
 
+enum ToolFunc: Int {
+    /// 输出 I18N 开头的key
+    case inputI18N = 0
+    /// 输出 非I18N 开头的key
+    case inputNOI18N
+    /// 输出 key相同 - value相同的key
+    case inputKeySameValueSame
+    /// 输出 key不同 - value相同的key
+    case inputKeySameValueDifferent
+    /// 输出 key相同同 - value不同的key
+    case inputKeyDifferentValueSame
+    /// 输出目标文件中存在, 源文件不存在的key
+    case inputTargetExistOriginalNoExist
+    /// 使用目标文件的key 替换源文件的key; 使用 源文件key 和 目标文件的value 匹配
+    case replaceKeyUseTargetKey
+}
+
 class YQMainViewController: NSViewController {
 
     @IBOutlet weak var sourceTableView: NSTableView!
@@ -33,6 +50,10 @@ class YQMainViewController: NSViewController {
     
     private lazy var sourceDataList: [YQFileModel] = [YQFileModel]()
     private lazy var targetDataList: [YQFileModel] = [YQFileModel]()
+    
+    @IBOutlet weak var inputI18NRadio: NSButton!
+    private lazy var toolFucn: ToolFunc = .inputI18N
+    private lazy var selectRadio: NSButton = inputI18NRadio
     
     fileprivate lazy var sourceDelegate: YQTableViewDelegate = {
         let delegate = YQTableViewDelegate()
@@ -79,6 +100,16 @@ class YQMainViewController: NSViewController {
         didSet {
         // Update the view, if already loaded.
         }
+    }
+    
+    @IBAction func radioAction(_ sender: NSButton) {
+        if selectRadio == sender {
+            return
+        }
+        selectRadio.state = .off
+        sender.state = sender.state == .off ? .off : .on
+        selectRadio = sender
+        toolFucn = ToolFunc(rawValue: sender.tag - 2000)!
     }
     
     @IBAction func startAction(_ sender: NSButton) {

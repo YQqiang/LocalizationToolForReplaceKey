@@ -1112,40 +1112,55 @@
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="lDm-JA-Fbd">
                                         <rect key="frame" x="32" y="10" width="636" height="200"/>
                                         <subviews>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Tj0-gJ-BoE">
+                                            <button verticalHuggingPriority="750" tag="2000" translatesAutoresizingMaskIntoConstraints="NO" id="Tj0-gJ-BoE">
                                                 <rect key="frame" x="-1" y="149" width="269" height="18"/>
-                                                <buttonCell key="cell" type="radio" title="输出资源文件中 👉'I18N_' 开头👈 的词条" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="ZFk-fr-XKP">
+                                                <buttonCell key="cell" type="radio" title="输出资源文件中 👉'I18N_' 开头👈 的词条" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="ZFk-fr-XKP">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="radioAction:" target="XfG-lQ-9wD" id="Vy9-iN-DhF"/>
+                                                </connections>
                                             </button>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zbS-cF-IYj">
+                                            <button verticalHuggingPriority="750" tag="2001" translatesAutoresizingMaskIntoConstraints="NO" id="zbS-cF-IYj">
                                                 <rect key="frame" x="297" y="149" width="287" height="18"/>
                                                 <buttonCell key="cell" type="radio" title="输出资源文件中 👉非 'I18N_' 开头👈 的词条" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="IEz-8z-JSt">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="radioAction:" target="XfG-lQ-9wD" id="DKI-PM-6iC"/>
+                                                </connections>
                                             </button>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Kd6-Ma-wf5">
+                                            <button verticalHuggingPriority="750" tag="2002" translatesAutoresizingMaskIntoConstraints="NO" id="Kd6-Ma-wf5">
                                                 <rect key="frame" x="-1" y="117" width="314" height="18"/>
                                                 <buttonCell key="cell" type="radio" title="输出资源文件中 👉key相同  value相同👈 的词条" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="0YM-yI-Tpt">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="radioAction:" target="XfG-lQ-9wD" id="trb-kl-3yp"/>
+                                                </connections>
                                             </button>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ENp-QR-lWT">
+                                            <button verticalHuggingPriority="750" tag="2003" translatesAutoresizingMaskIntoConstraints="NO" id="ENp-QR-lWT">
                                                 <rect key="frame" x="318" y="117" width="314" height="18"/>
                                                 <buttonCell key="cell" type="radio" title="输出资源文件中 👉key相同  value不同👈 的词条" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="nOH-Iy-UKR">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="radioAction:" target="XfG-lQ-9wD" id="KpY-FB-iFI"/>
+                                                </connections>
                                             </button>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Yi6-aa-ApZ">
+                                            <button verticalHuggingPriority="750" tag="2004" translatesAutoresizingMaskIntoConstraints="NO" id="Yi6-aa-ApZ">
                                                 <rect key="frame" x="-1" y="85" width="314" height="18"/>
                                                 <buttonCell key="cell" type="radio" title="输出资源文件中 👉key不同  value相同👈 的词条" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="jSO-8h-OS1">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="radioAction:" target="XfG-lQ-9wD" id="Mjc-fN-ASX"/>
+                                                </connections>
                                             </button>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="duy-tT-WcD">
                                                 <rect key="frame" x="-2" y="182" width="66" height="18"/>
@@ -1155,19 +1170,25 @@
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oNW-xq-fNH">
+                                            <button verticalHuggingPriority="750" tag="2005" translatesAutoresizingMaskIntoConstraints="NO" id="oNW-xq-fNH">
                                                 <rect key="frame" x="-1" y="53" width="450" height="18"/>
                                                 <buttonCell key="cell" type="radio" title="输出 👉目标文件中存在(页面右侧), 源文件中不存在(页面左侧)👈 的词条" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="C78-O9-wBR">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="radioAction:" target="XfG-lQ-9wD" id="hgf-Gp-sx6"/>
+                                                </connections>
                                             </button>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ifE-TE-dqw">
+                                            <button verticalHuggingPriority="750" tag="2006" translatesAutoresizingMaskIntoConstraints="NO" id="ifE-TE-dqw">
                                                 <rect key="frame" x="-1" y="21" width="628" height="18"/>
                                                 <buttonCell key="cell" type="radio" title="使用 目标文件中 key-value 的 value 匹配源文件中的 key, 并使用目标文件的 key 替换源文件中的 key" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="dM7-yL-2Qs">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="radioAction:" target="XfG-lQ-9wD" id="Z1e-Rs-l3d"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -1228,6 +1249,7 @@
                         <outlet property="bgGradientView" destination="2Mw-rp-IlY" id="PSl-Fz-MRF"/>
                         <outlet property="bottomConstraint" destination="OY2-Ef-V1v" id="UU7-r9-wBZ"/>
                         <outlet property="executeIndicator" destination="efF-uG-pZr" id="itN-yE-5UO"/>
+                        <outlet property="inputI18NRadio" destination="Tj0-gJ-BoE" id="Kzl-Ph-6cE"/>
                         <outlet property="outFolderNameTF" destination="d1v-e1-lYK" id="zII-cS-STO"/>
                         <outlet property="outPathTF" destination="9gh-w7-6fK" id="49m-WS-kGL"/>
                         <outlet property="selectPathBTN" destination="Qes-2d-ev3" id="OnI-41-ez0"/>
