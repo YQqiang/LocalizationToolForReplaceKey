@@ -88,17 +88,20 @@ class YQMainViewController: NSViewController {
             let sourceKeyValueModels = self.allKeyValueModels(self.sourceDataList)
             targetKeyValueModels.forEach({ (targetKeyValueModel) in
                 self.showMessage("正在处理:" + targetKeyValueModel.key, label: self.targetMessageLBL)
-                var isUsedKey = false
-                for sourceKeyValueModel in sourceKeyValueModels {
-                    self.showMessage("正在处理:" + sourceKeyValueModel.key, label: self.sourceMessageLBL)
-                    if targetKeyValueModel.key == sourceKeyValueModel.key {
-                        isUsedKey = true
-                        break;
-                    }
+                if targetKeyValueModel.key.lowercased().hasPrefix("i18n") {
+                    print("\"\(targetKeyValueModel.key)\" = \"\(targetKeyValueModel.chValue)\";")
                 }
-                if !isUsedKey {
-                    print("---- \(targetKeyValueModel.key) --- \(targetKeyValueModel.chValue)")
-                }
+//                var isUsedKey = false
+//                for sourceKeyValueModel in sourceKeyValueModels {
+//                    self.showMessage("正在处理:" + sourceKeyValueModel.key, label: self.sourceMessageLBL)
+//                    if targetKeyValueModel.key == sourceKeyValueModel.key {
+//                        isUsedKey = true
+//                        break;
+//                    }
+//                }
+//                if !isUsedKey {
+//                    print("\"\(targetKeyValueModel.key)\" = \"\(targetKeyValueModel.chValue)\";")
+//                }
             })
             self.endExecute()
         }
