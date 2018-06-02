@@ -53,7 +53,7 @@ extension SplitManager {
         var sourceKeyValueModels = [KeyValueModel]()
         let jsonContent = try? String.init(contentsOfFile: fileModel.filePath)
         if let lines = jsonContent?.components(separatedBy: "\n") {
-            for line in lines {
+            for (index, line) in lines.enumerated() {
                 let keyValue = line.components(separatedBy: "\" = \"")
                 if keyValue.count == 2 {
                     var keyP = keyValue.first!.trimmingCharacters(in: .whitespaces)
@@ -63,11 +63,12 @@ extension SplitManager {
                         keyP = keyP.replacingOccurrences(of: dropString, with: "")
                     }
                     
-                    dropString = "\";\r"
+                    dropString = "\";"
                     if valueS.hasSuffix(dropString) {
                         valueS = valueS.replacingOccurrences(of: dropString, with: "")
                     }
                     let keyValueModel = KeyValueModel(key: keyP, chValue: valueS, enValue: valueS, geValue: valueS, jpValue: valueS)
+                    keyValueModel.filePath = "\(index)"
                     sourceKeyValueModels.append(keyValueModel)
                 }
             }

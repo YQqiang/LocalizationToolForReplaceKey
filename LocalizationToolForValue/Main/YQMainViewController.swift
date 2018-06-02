@@ -113,28 +113,27 @@ class YQMainViewController: NSViewController {
     }
     
     @IBAction func startAction(_ sender: NSButton) {
-        starExecute()
-        let targetKeyValueModels = allKeyValueModels(targetDataList)
-        DispatchQueue.global().async {
-            targetKeyValueModels.forEach({ (targetKeyValueModel) in
-                self.showMessage("正在处理:" + targetKeyValueModel.key, label: self.targetMessageLBL)
-                self.allKeyValueModels(self.sourceDataList, forEach: { (sourceKeyValueModel) -> Bool in
-                    if sourceKeyValueModel.key.lowercased().hasPrefix("i18n") {
-                        self.showMessage("正在处理:" + sourceKeyValueModel.key, label: self.sourceMessageLBL)
-                        if sourceKeyValueModel.key == targetKeyValueModel.chValue {
-                            if let path = sourceKeyValueModel.filePath,
-                                let range = sourceKeyValueModel.range {
-                                var content = try? String.init(contentsOfFile: path)
-                                content = ((content ?? "") as NSString).replacingOccurrences(of: sourceKeyValueModel.key, with: targetKeyValueModel.key, options: .anchored, range: range)
-                                try? content?.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
-                                return true
-                            }
-                        }
-                    }
-                    return false
-                })
-            })
-            self.endExecute()
+        switch toolFucn {
+        case .inputI18N:
+            inputI18NAction()
+            break
+        case .inputNOI18N:
+            inputNOI18NAction()
+            break
+        case .inputKeySameValueSame:
+            inputKeySameValueSameAction()
+            break
+        case .inputKeySameValueDifferent:
+            inputKeySameValueDifferent()
+            break
+        case .inputKeyDifferentValueSame:
+            inputKeyDifferentValueSame()
+            break
+        case .inputTargetExistOriginalNoExist:
+            inputTargetExistOriginalNoExistAction()
+            break
+        case .replaceKeyUseTargetKey:
+            break
         }
     }
     
@@ -183,7 +182,6 @@ class YQMainViewController: NSViewController {
 
 // MARK: - private Action
 extension YQMainViewController {
-    
     /// 开始执行
     private func starExecute() {
         DispatchQueue.main.async {
@@ -266,6 +264,159 @@ extension YQMainViewController {
     }
 }
 
+// MARK: - ToolFunc
+extension YQMainViewController {
+    /// 输出 I18N 开头的词条
+    fileprivate func inputI18NAction() {
+        starExecute()
+        DispatchQueue.global().async {
+            let sourceKeyValueModels = self.allKeyValueModels(self.sourceDataList)
+            sourceKeyValueModels.forEach({ (sourceKeyValueModel) in
+                self.showMessage("正在处理:" + sourceKeyValueModel.key, label: self.sourceMessageLBL)
+                if sourceKeyValueModel.key.lowercased().hasPrefix("i18n") {
+                    print("\"\(sourceKeyValueModel.key)\" = \"\(sourceKeyValueModel.chValue)\";")
+                }
+            })
+            self.endExecute()
+        }
+    }
+    
+    /// 输出 非I18N 开头的词条
+    fileprivate func inputNOI18NAction() {
+        starExecute()
+        DispatchQueue.global().async {
+            let sourceKeyValueModels = self.allKeyValueModels(self.sourceDataList)
+            sourceKeyValueModels.forEach({ (sourceKeyValueModel) in
+                self.showMessage("正在处理:" + sourceKeyValueModel.key, label: self.sourceMessageLBL)
+                if !sourceKeyValueModel.key.lowercased().hasPrefix("i18n") {
+                    print("\"\(sourceKeyValueModel.key)\" = \"\(sourceKeyValueModel.chValue)\";")
+                }
+            })
+            self.endExecute()
+        }
+    }
+    
+    /// 输出 key 相同  value 相同的 词条
+    fileprivate func inputKeySameValueSameAction() {
+        starExecute()
+        let sourceValueModels = allKeyValueModels(sourceDataList)
+        DispatchQueue.global().async {
+            var repeatKeys: [String] = []
+            sourceValueModels.forEach { (targetModel) in
+                sourceValueModels.forEach({ (sourceModel) in
+                    if targetModel.key == sourceModel.key &&
+                        targetModel.chValue == sourceModel.chValue &&
+                        targetModel.filePath! != sourceModel.filePath! &&
+                        !repeatKeys.contains(sourceModel.key) &&
+                        !repeatKeys.contains(targetModel.key) {
+                        repeatKeys.append(sourceModel.key)
+                        repeatKeys.append(targetModel.key)
+                        print("\"\(targetModel.key)\" = \"\(sourceModel.chValue)\";")
+                    }
+                })
+            }
+            self.endExecute()
+        }
+    }
+    
+    /// 输出 key 相同  value 不同的 词条
+    fileprivate func inputKeySameValueDifferent() {
+        starExecute()
+        let sourceValueModels = allKeyValueModels(sourceDataList)
+        DispatchQueue.global().async {
+            var repeatKeys: [String] = []
+            sourceValueModels.forEach { (targetModel) in
+                sourceValueModels.forEach({ (sourceModel) in
+                    if targetModel.key == sourceModel.key &&
+                        targetModel.chValue != sourceModel.chValue &&
+                        targetModel.filePath! != sourceModel.filePath! &&
+                        !repeatKeys.contains(sourceModel.key) &&
+                        !repeatKeys.contains(targetModel.key) {
+                        repeatKeys.append(sourceModel.key)
+                        repeatKeys.append(targetModel.key)
+                        print("\"\(targetModel.key)\" = \"\(sourceModel.chValue)\";")
+                    }
+                })
+            }
+            self.endExecute()
+        }
+    }
+    
+    /// 输出 key 相同  value 不同的 词条
+    fileprivate func inputKeyDifferentValueSame() {
+        starExecute()
+        let sourceValueModels = allKeyValueModels(sourceDataList)
+        DispatchQueue.global().async {
+            var repeatKeys: [String] = []
+            sourceValueModels.forEach { (targetModel) in
+                sourceValueModels.forEach({ (sourceModel) in
+                    if targetModel.key != sourceModel.key &&
+                        targetModel.chValue == sourceModel.chValue &&
+                        targetModel.filePath! != sourceModel.filePath! &&
+                        !repeatKeys.contains(sourceModel.key) &&
+                        !repeatKeys.contains(targetModel.key) {
+                        repeatKeys.append(sourceModel.key)
+                        repeatKeys.append(targetModel.key)
+                        print("\"\(targetModel.key)\" = \"\(sourceModel.chValue)\";")
+                    }
+                })
+            }
+            self.endExecute()
+        }
+    }
+    
+    /// 输出 目标文件中存在, 源文件中不存在的 词条
+    fileprivate func inputTargetExistOriginalNoExistAction() {
+        starExecute()
+        DispatchQueue.global().async {
+            let targetKeyValueModels = self.allKeyValueModels(self.targetDataList)
+            let sourceKeyValueModels = self.allKeyValueModels(self.sourceDataList)
+            targetKeyValueModels.forEach({ (targetKeyValueModel) in
+                self.showMessage("正在处理:" + targetKeyValueModel.key, label: self.targetMessageLBL)
+                var isUsedKey = false
+                for sourceKeyValueModel in sourceKeyValueModels {
+                    self.showMessage("正在处理:" + sourceKeyValueModel.key, label: self.sourceMessageLBL)
+                    if targetKeyValueModel.key == sourceKeyValueModel.key {
+                        isUsedKey = true
+                        break;
+                    }
+                }
+                if !isUsedKey {
+                    print("\"\(targetKeyValueModel.key)\" = \"\(targetKeyValueModel.chValue)\";")
+                }
+            })
+            self.endExecute()
+        }
+    }
+    
+    /// 使用目标文件中的key 替换 源文件中的 key; 通过目标文件的value 和资源文件的key 去匹配
+    fileprivate func replaceKeyUseTargetKeyAction() {
+        starExecute()
+        let targetKeyValueModels = allKeyValueModels(targetDataList)
+        DispatchQueue.global().async {
+            targetKeyValueModels.forEach({ (targetKeyValueModel) in
+                self.showMessage("正在处理:" + targetKeyValueModel.key, label: self.targetMessageLBL)
+                self.allKeyValueModels(self.sourceDataList, forEach: { (sourceKeyValueModel) -> Bool in
+                    if sourceKeyValueModel.key.lowercased().hasPrefix("i18n") {
+                        self.showMessage("正在处理:" + sourceKeyValueModel.key, label: self.sourceMessageLBL)
+                        if sourceKeyValueModel.key == targetKeyValueModel.chValue {
+                            if let path = sourceKeyValueModel.filePath,
+                                let range = sourceKeyValueModel.range {
+                                var content = try? String.init(contentsOfFile: path)
+                                content = ((content ?? "") as NSString).replacingOccurrences(of: sourceKeyValueModel.key, with: targetKeyValueModel.key, options: .anchored, range: range)
+                                try? content?.write(toFile: path, atomically: false, encoding: String.Encoding.utf8)
+                                return true
+                            }
+                        }
+                    }
+                    return false
+                })
+            })
+            self.endExecute()
+        }
+    }
+}
+
 // MARK: - YQDragDropViewDelegate
 extension YQMainViewController: YQDragDropViewDelegate {
     func draggingFileAccept(_ dragDropView: YQDragDropView, files: [String]) {
@@ -274,13 +425,6 @@ extension YQMainViewController: YQDragDropViewDelegate {
             files.forEach { (pathStr) in
                 let fileModel = YQFileModel(filePath: pathStr)
                 sourceDataList.append(fileModel)
-                
-                print("------------ 分割线 ---------")
-                print("------ isFolder = \(fileModel.isFolder)")
-                print("------ fileName = \(fileModel.fileName)")
-                print("------ fileNameWithoutExtension = \(fileModel.fileNameWithoutExtension)")
-                print("------ fileExtension = \(fileModel.fileExtension)")
-                print("------------ 结束 ---------\n")
             }
             reloadSourceTableVC()
         } else {
