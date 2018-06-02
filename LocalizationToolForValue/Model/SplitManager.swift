@@ -50,15 +50,28 @@ final class SplitManager {
 extension SplitManager {
     
     private func splitStrings(_ fileModel: YQFileModel, separateStr: String) -> [KeyValueModel] {
-        let content = try? String.init(contentsOfFile: fileModel.filePath, encoding: String.Encoding.utf8)
-        let arr = content?.components(separatedBy: "\n")
         var sourceKeyValueModels = [KeyValueModel]()
-        arr?.forEach({ (str) in
-            let keyValue = str.components(separatedBy: separateStr)
-            if keyValue.count == 2 {
-                sourceKeyValueModels.append(KeyValueModel(key: keyValue.first!, chValue: keyValue.last!, enValue: keyValue.last!, geValue: "", jpValue: ""))
+        let jsonContent = try? String.init(contentsOfFile: fileModel.filePath)
+        if let lines = jsonContent?.components(separatedBy: "\n") {
+            for line in lines {
+                let keyValue = line.components(separatedBy: "\" = \"")
+                if keyValue.count == 2 {
+                    var keyP = keyValue.first!.trimmingCharacters(in: .whitespaces)
+                    var valueS = keyValue.last!
+                    var dropString = "\""
+                    if keyP.hasPrefix(dropString) {
+                        keyP = keyP.replacingOccurrences(of: dropString, with: "")
+                    }
+                    
+                    dropString = "\";\r"
+                    if valueS.hasSuffix(dropString) {
+                        valueS = valueS.replacingOccurrences(of: dropString, with: "")
+                    }
+                    let keyValueModel = KeyValueModel(key: keyP, chValue: valueS, enValue: valueS, geValue: valueS, jpValue: valueS)
+                    sourceKeyValueModels.append(keyValueModel)
+                }
             }
-        })
+        }
         return sourceKeyValueModels
     }
     
@@ -135,7 +148,7 @@ extension SplitManager {
     }
     
     private func enumeratorFile(_ fileModel: YQFileModel, prefix: String, suffix: String, loop: Bool = true, forEach: ((KeyValueModel) -> Bool)?) -> [KeyValueModel] {
-        let content = try? String.init(contentsOfFile: fileModel.filePath, encoding: String.Encoding.utf8)
+        let content = try? String.init(contentsOfFile: fileModel.filePath)
         var sourceKeyValueModels = [KeyValueModel]()
         if let content = content {
             let regular = try? NSRegularExpression(pattern: "(?<=\(prefix)).*?(?=\(suffix))", options: .caseInsensitive)
@@ -149,7 +162,7 @@ extension SplitManager {
                     sourceKeyValueModels.append(keyValueModel)
                     if let closure = forEach {
                         let haveTargetKey = closure(keyValueModel)
-                        if haveTargetKey && loop {
+                        if haveTargetKey && loop && !["strings"].contains(fileModel.fileExtension.lowercased()) {
                             for _ in 0..<checkResults.count {
                                 _ = enumeratorFile(fileModel, prefix: prefix, suffix: suffix, loop: false, forEach: closure)
                             }
