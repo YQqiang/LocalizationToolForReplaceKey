@@ -20,7 +20,7 @@ final class JointManager {
     private init(){}
     
     private let defaultHomePath = NSHomeDirectory() + "/Desktop"
-    private let defaultOutFolderName = "LocalizationToolForValue"
+    private let defaultOutFolderName = "LocalizationToolForReplaceKey"
     
     lazy var homePath: String = defaultHomePath
     
@@ -52,6 +52,14 @@ final class JointManager {
         try? enContent.write(toFile: "\(outPath)/en.Strings", atomically: true, encoding: String.Encoding.utf8)
         try? geContent.write(toFile: "\(outPath)/ge.Strings", atomically: true, encoding: String.Encoding.utf8)
         try? jpContent.write(toFile: "\(outPath)/jp.Strings", atomically: true, encoding: String.Encoding.utf8)
+    }
+    
+    func Joint(_ fileName: String, content: String) {
+        let fileManager = FileManager.default
+        if !fileManager.fileExists(atPath: outPath) {
+            try! fileManager.createDirectory(atPath: outPath, withIntermediateDirectories: true, attributes: nil)
+        }
+        try? content.write(toFile: "\(outPath)/\(fileName).Strings", atomically: true, encoding: String.Encoding.utf8)
     }
     
     /// 恢复默认的输出路径

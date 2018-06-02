@@ -271,12 +271,14 @@ extension YQMainViewController {
         starExecute()
         DispatchQueue.global().async {
             let sourceKeyValueModels = self.allKeyValueModels(self.sourceDataList)
+            var content = ""
             sourceKeyValueModels.forEach({ (sourceKeyValueModel) in
                 self.showMessage("正在处理:" + sourceKeyValueModel.key, label: self.sourceMessageLBL)
                 if sourceKeyValueModel.key.lowercased().hasPrefix("i18n") {
-                    print("\"\(sourceKeyValueModel.key)\" = \"\(sourceKeyValueModel.chValue)\";")
+                    content += "\"\(sourceKeyValueModel.key)\" = \"\(sourceKeyValueModel.chValue)\";\n"
                 }
             })
+            JointManager.shared.Joint("\(self.toolFucn)", content: content)
             self.endExecute()
         }
     }
@@ -286,12 +288,14 @@ extension YQMainViewController {
         starExecute()
         DispatchQueue.global().async {
             let sourceKeyValueModels = self.allKeyValueModels(self.sourceDataList)
+            var content = ""
             sourceKeyValueModels.forEach({ (sourceKeyValueModel) in
                 self.showMessage("正在处理:" + sourceKeyValueModel.key, label: self.sourceMessageLBL)
                 if !sourceKeyValueModel.key.lowercased().hasPrefix("i18n") {
-                    print("\"\(sourceKeyValueModel.key)\" = \"\(sourceKeyValueModel.chValue)\";")
+                    content += "\"\(sourceKeyValueModel.key)\" = \"\(sourceKeyValueModel.chValue)\";\n"
                 }
             })
+            JointManager.shared.Joint("\(self.toolFucn)", content: content)
             self.endExecute()
         }
     }
@@ -302,6 +306,7 @@ extension YQMainViewController {
         let sourceValueModels = allKeyValueModels(sourceDataList)
         DispatchQueue.global().async {
             var repeatKeys: [String] = []
+            var content = ""
             sourceValueModels.forEach { (targetModel) in
                 sourceValueModels.forEach({ (sourceModel) in
                     if targetModel.key == sourceModel.key &&
@@ -311,10 +316,11 @@ extension YQMainViewController {
                         !repeatKeys.contains(targetModel.key) {
                         repeatKeys.append(sourceModel.key)
                         repeatKeys.append(targetModel.key)
-                        print("\"\(targetModel.key)\" = \"\(sourceModel.chValue)\";")
+                        content += "\"\(targetModel.key)\" = \"\(sourceModel.chValue)\";\n"
                     }
                 })
             }
+            JointManager.shared.Joint("\(self.toolFucn)", content: content)
             self.endExecute()
         }
     }
@@ -325,6 +331,7 @@ extension YQMainViewController {
         let sourceValueModels = allKeyValueModels(sourceDataList)
         DispatchQueue.global().async {
             var repeatKeys: [String] = []
+            var content = ""
             sourceValueModels.forEach { (targetModel) in
                 sourceValueModels.forEach({ (sourceModel) in
                     if targetModel.key == sourceModel.key &&
@@ -334,20 +341,22 @@ extension YQMainViewController {
                         !repeatKeys.contains(targetModel.key) {
                         repeatKeys.append(sourceModel.key)
                         repeatKeys.append(targetModel.key)
-                        print("\"\(targetModel.key)\" = \"\(sourceModel.chValue)\";")
+                        content += "\"\(targetModel.key)\" = \"\(sourceModel.chValue)\";\n"
                     }
                 })
             }
+            JointManager.shared.Joint("\(self.toolFucn)", content: content)
             self.endExecute()
         }
     }
     
-    /// 输出 key 相同  value 不同的 词条
+    /// 输出 key 不同  value 相同的 词条
     fileprivate func inputKeyDifferentValueSame() {
         starExecute()
         let sourceValueModels = allKeyValueModels(sourceDataList)
         DispatchQueue.global().async {
             var repeatKeys: [String] = []
+            var content = ""
             sourceValueModels.forEach { (targetModel) in
                 sourceValueModels.forEach({ (sourceModel) in
                     if targetModel.key != sourceModel.key &&
@@ -357,10 +366,11 @@ extension YQMainViewController {
                         !repeatKeys.contains(targetModel.key) {
                         repeatKeys.append(sourceModel.key)
                         repeatKeys.append(targetModel.key)
-                        print("\"\(targetModel.key)\" = \"\(sourceModel.chValue)\";")
+                        content += "\"\(targetModel.key)\" = \"\(sourceModel.chValue)\";\n"
                     }
                 })
             }
+            JointManager.shared.Joint("\(self.toolFucn)", content: content)
             self.endExecute()
         }
     }
@@ -371,6 +381,7 @@ extension YQMainViewController {
         DispatchQueue.global().async {
             let targetKeyValueModels = self.allKeyValueModels(self.targetDataList)
             let sourceKeyValueModels = self.allKeyValueModels(self.sourceDataList)
+            var content = ""
             targetKeyValueModels.forEach({ (targetKeyValueModel) in
                 self.showMessage("正在处理:" + targetKeyValueModel.key, label: self.targetMessageLBL)
                 var isUsedKey = false
@@ -382,9 +393,10 @@ extension YQMainViewController {
                     }
                 }
                 if !isUsedKey {
-                    print("\"\(targetKeyValueModel.key)\" = \"\(targetKeyValueModel.chValue)\";")
+                    content += "\"\(targetKeyValueModel.key)\" = \"\(targetKeyValueModel.chValue)\";\n"
                 }
             })
+            JointManager.shared.Joint("\(self.toolFucn)", content: content)
             self.endExecute()
         }
     }
