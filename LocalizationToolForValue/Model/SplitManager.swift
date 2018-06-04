@@ -100,10 +100,13 @@ extension SplitManager {
         let jsonContent = try? String.init(contentsOfFile: fileModel.filePath)
         if let lines = jsonContent?.components(separatedBy: "\n") {
             for line in lines {
-                let keyValue = line.components(separatedBy: "\">")
+                var keyValue = line.components(separatedBy: "\">")
+                if keyValue.count != 2 {
+                    keyValue = line.components(separatedBy: "\" >")
+                }
                 if keyValue.count == 2 {
                     var keyP = keyValue.first!.trimmingCharacters(in: .whitespaces)
-                    var valueS = keyValue.last!
+                    var valueS = keyValue.last!.trimmingCharacters(in: .controlCharacters)
                     var dropString = "<string name=\""
                     if keyP.hasPrefix(dropString) {
                         keyP = keyP.replacingOccurrences(of: dropString, with: "")
@@ -163,7 +166,7 @@ extension SplitManager {
                     sourceKeyValueModels.append(keyValueModel)
                     if let closure = forEach {
                         let haveTargetKey = closure(keyValueModel)
-                        if haveTargetKey && loop && !["strings"].contains(fileModel.fileExtension.lowercased()) {
+                        if haveTargetKey && loop && !["strings", "txt"].contains(fileModel.fileExtension.lowercased()) {
                             for _ in 0..<checkResults.count {
                                 _ = enumeratorFile(fileModel, prefix: prefix, suffix: suffix, loop: false, forEach: closure)
                             }

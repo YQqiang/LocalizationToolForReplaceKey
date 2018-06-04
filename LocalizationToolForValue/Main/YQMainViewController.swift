@@ -133,6 +133,7 @@ class YQMainViewController: NSViewController {
             inputTargetExistOriginalNoExistAction()
             break
         case .replaceKeyUseTargetKey:
+            replaceKeyUseTargetKeyAction()
             break
         }
     }
