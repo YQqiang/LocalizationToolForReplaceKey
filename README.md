@@ -19,6 +19,8 @@
 下载地址: 
 [LocalizationToolForReplaceKey 源码](https://github.com/YQqiang/LocalizationToolForReplaceKey)
 
+博客地址: [iOS国际化利器](http://yuqiangcoder.com/2018/06/16/iOS%E5%9B%BD%E9%99%85%E5%8C%96%E5%88%A9%E5%99%A8.html)
+
 ### 使用
 ![应用程序界面](http://yuqiangcoder.com/assets/postImages/ios/201806/2.png)
 
