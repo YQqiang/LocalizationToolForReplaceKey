@@ -1,5 +1,5 @@
 # LocalizationToolForReplaceKey
-
+![](http://yuqiangcoder.com/assets/postImages/ios/201806/1.png)
 ### 前言
 之前发过如何查询项目代码中未国际化的字符串工具 [LocalizationTool](http://yuqiangcoder.com/2017/12/22/LocalizationTool-%E5%9B%BD%E9%99%85%E5%8C%96%E5%B7%A5%E5%85%B7.html), 但是全部词条翻译后, 资源文件仍然有很多问题.
 
