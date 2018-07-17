@@ -451,6 +451,36 @@ extension YQMainViewController: YQDragDropViewDelegate {
     }
 }
 
+// MARK: - 拓展功能
+extension YQMainViewController {
+    
+    /// 使用目标资源文件的value 作为占位词条替换 源文件的value
+    fileprivate func placeholderForValue() {
+        starExecute()
+        DispatchQueue.global().async {
+            // 德文文件
+            let sourceKeyValueModels = self.allKeyValueModels(self.sourceDataList)
+            // 中文文件
+            let targetKeyValueModels = self.allKeyValueModels(self.targetDataList)
+            for sourceKeyValueModel in sourceKeyValueModels {
+                self.showMessage("正在处理:" + sourceKeyValueModel.key, label: self.sourceMessageLBL)
+                if sourceKeyValueModel.chValue.count > 0 {
+                    continue
+                }
+                for tarketKeyValueModel in targetKeyValueModels {
+                    self.showMessage("正在处理:" + tarketKeyValueModel.key, label: self.targetMessageLBL)
+                    if sourceKeyValueModel.key == tarketKeyValueModel.key {
+                        sourceKeyValueModel.chValue = tarketKeyValueModel.chValue
+                        break
+                    }
+                }
+            }
+            JointManager.shared.Joint(sourceKeyValueModels)
+            self.endExecute()
+        }
+    }
+}
+
 extension YQMainViewController: NSTextFieldDelegate {
     override func controlTextDidChange(_ obj: Notification) {
         if let textField = obj.object as? NSTextField {
