@@ -18,7 +18,7 @@ class YQTableViewDelegate: NSObject {
     
     var tableview: NSTableView? {
         didSet {
-            tableview?.register(NSNib(nibNamed: NSNib.Name(rawValue: "YQTableCellView"), bundle: nil)!, forIdentifier: NSUserInterfaceItemIdentifier(rawValue: "YQTableCellView"))
+            tableview?.register(NSNib(nibNamed: "YQTableCellView", bundle: nil)!, forIdentifier: NSUserInterfaceItemIdentifier(rawValue: "YQTableCellView"))
         }
     }
     

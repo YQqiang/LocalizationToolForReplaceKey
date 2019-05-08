@@ -482,7 +482,7 @@ extension YQMainViewController {
 }
 
 extension YQMainViewController: NSTextFieldDelegate {
-    override func controlTextDidChange(_ obj: Notification) {
+    func controlTextDidChange(_ obj: Notification) {
         if let textField = obj.object as? NSTextField {
             JointManager.shared.outFolderName = textField.stringValue
             configOutpath()

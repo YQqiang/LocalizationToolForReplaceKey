@@ -103,7 +103,7 @@ extension YQDragDropView {
                 delegate.draggingEntered!(self);
             }
         }
-        let pastboard = sender.draggingPasteboard()
+        let pastboard = sender.draggingPasteboard
         if (pastboard.types?.contains(.backwardsCompatibleFileURL))! {
             return .copy
         }
@@ -123,7 +123,7 @@ extension YQDragDropView {
     }
     
     override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
-        let files: [String]? = sender.draggingPasteboard().propertyList(forType: .backwardsCompatibleFileURL) as? [String]
+        let files: [String]? = sender.draggingPasteboard.propertyList(forType: .backwardsCompatibleFileURL) as? [String]
         print("------ \(String(describing: files))")
         if self.delegate != nil, let files = files {
             self.delegate?.draggingFileAccept(self, files: files);
