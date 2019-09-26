@@ -13,22 +13,13 @@ class KeyValueModel: Decodable {
     var key: String = ""
     // 中文
     var chValue: String = ""
-    // 英文
-    var enValue: String = ""
-    // 德文
-    var geValue: String = ""
-    // 日文
-    var jpValue: String = ""
     
     var range: NSRange?
     var filePath: String?
     
-    init(key: String, chValue: String, enValue: String, geValue: String, jpValue: String) {
+    init(key: String, chValue: String) {
         self.key = key
         self.chValue = chValue
-        self.enValue = enValue
-        self.geValue = geValue
-        self.jpValue = jpValue
     }
     
 }

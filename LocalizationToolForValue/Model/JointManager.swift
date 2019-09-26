@@ -33,14 +33,8 @@ final class JointManager {
     
     func Joint(_ keyValueModels: [KeyValueModel]) {
         var chContent = ""
-        var enContent = ""
-        var geContent = ""
-        var jpContent = ""
         keyValueModels.forEach { (keyValueModel) in
             chContent = chContent + "\"" + keyValueModel.key + "\" = \"" + keyValueModel.chValue + "\";" + "\n"
-            enContent = enContent + "\"" + keyValueModel.key + "\" = \"" + keyValueModel.enValue + "\";" + "\n"
-            geContent = geContent + "\"" + keyValueModel.key + "\" = \"" + keyValueModel.geValue + "\";" + "\n"
-            jpContent = jpContent + "\"" + keyValueModel.key + "\" = \"" + keyValueModel.jpValue + "\";" + "\n"
         }
         
         let fileManager = FileManager.default
@@ -49,9 +43,6 @@ final class JointManager {
         }
 
         try? chContent.write(toFile: "\(outPath)/ch.Strings", atomically: true, encoding: String.Encoding.utf8)
-        try? enContent.write(toFile: "\(outPath)/en.Strings", atomically: true, encoding: String.Encoding.utf8)
-        try? geContent.write(toFile: "\(outPath)/ge.Strings", atomically: true, encoding: String.Encoding.utf8)
-        try? jpContent.write(toFile: "\(outPath)/jp.Strings", atomically: true, encoding: String.Encoding.utf8)
     }
     
     func Joint(_ fileName: String, content: String) {
