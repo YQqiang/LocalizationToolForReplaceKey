@@ -454,6 +454,48 @@ extension YQMainViewController: YQDragDropViewDelegate {
 // MARK: - 拓展功能
 extension YQMainViewController {
     
+    /// 1. 当目标文件的value和源文件的value不同时,是否更新目标文件的value
+    /// 2. 当源文件中没有目标文件的key-value 时,是否添加
+    /// - Parameter isUpdate: 是否更新
+    /// - Parameter isAdd: 是否添加
+    fileprivate func updateSourceFromeTarget(whenDifferentValue isUpdate: Bool = true, whenNoValue isAdd: Bool = true) {
+        if !isUpdate && !isAdd {
+            return;
+        }
+        starExecute()
+        DispatchQueue.global().async {
+            // 源文件key-value
+            let sourceKeyValueModels = self.allKeyValueModels(self.sourceDataList)
+            // 目标文件key-value
+            let targetKeyValueModels = self.allKeyValueModels(self.targetDataList)
+            // 待添加的key-value
+            var addKeyValueModels: [KeyValueModel] = []
+            
+            for tarketKeyValueModel in targetKeyValueModels {
+                self.showMessage("正在处理:" + tarketKeyValueModel.key, label: self.targetMessageLBL)
+                var isCanAdd = true
+                for sourceKeyValueModel in sourceKeyValueModels {
+                    self.showMessage("正在处理:" + sourceKeyValueModel.key, label: self.sourceMessageLBL)
+                    if sourceKeyValueModel.key == tarketKeyValueModel.key {
+                        if sourceKeyValueModel.chValue != tarketKeyValueModel.chValue {
+                            if isUpdate {
+                                sourceKeyValueModel.chValue = tarketKeyValueModel.chValue
+                            }
+                        }
+                        isCanAdd = false
+                        break
+                    }
+                }
+                if isCanAdd, isAdd {
+                    addKeyValueModels.append(tarketKeyValueModel)
+                }
+            }
+            JointManager.shared.JointForIOS(sourceKeyValueModels + addKeyValueModels)
+            JointManager.shared.JointForAndroid(sourceKeyValueModels + addKeyValueModels)
+            self.endExecute()
+        }
+    }
+    
     /// 使用目标资源文件的value 作为占位词条替换 源文件的value
     fileprivate func placeholderForValue() {
         starExecute()
@@ -475,7 +517,8 @@ extension YQMainViewController {
                     }
                 }
             }
-            JointManager.shared.Joint(sourceKeyValueModels)
+            JointManager.shared.JointForIOS(sourceKeyValueModels)
+            JointManager.shared.JointForAndroid(sourceKeyValueModels)
             self.endExecute()
         }
     }

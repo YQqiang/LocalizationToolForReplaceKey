@@ -31,7 +31,7 @@ final class JointManager {
         return path
     }
     
-    func Joint(_ keyValueModels: [KeyValueModel]) {
+    func JointForIOS(_ keyValueModels: [KeyValueModel]) {
         var chContent = ""
         keyValueModels.forEach { (keyValueModel) in
             chContent = chContent + "\"" + keyValueModel.key + "\" = \"" + keyValueModel.chValue + "\";" + "\n"
@@ -43,6 +43,26 @@ final class JointManager {
         }
 
         try? chContent.write(toFile: "\(outPath)/ch.Strings", atomically: true, encoding: String.Encoding.utf8)
+    }
+    
+    
+    func JointForAndroid(_ keyValueModels: [KeyValueModel]) {
+        var chContent = ""
+        keyValueModels.forEach { (keyValueModel) in
+            //<string name="I18N_INSIGHT_MESSAGE_DELETE_SURE">Are you sure to delete?</string>
+            var value = keyValueModel.chValue
+            value = value.replacingOccurrences(of: "<", with: "&lt;")
+            value = value.replacingOccurrences(of: ">", with: "&gt;")
+            keyValueModel.chValue = value
+            chContent = chContent + "<string name=\"" + keyValueModel.key + "\">" + keyValueModel.chValue + "</string>" + "\n"
+        }
+        
+        let fileManager = FileManager.default
+        if !fileManager.fileExists(atPath: outPath) {
+            try! fileManager.createDirectory(atPath: outPath, withIntermediateDirectories: true, attributes: nil)
+        }
+
+        try? chContent.write(toFile: "\(outPath)/android.xml", atomically: true, encoding: String.Encoding.utf8)
     }
     
     func Joint(_ fileName: String, content: String) {
