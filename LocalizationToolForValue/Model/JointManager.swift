@@ -8,13 +8,6 @@
 
 import Foundation
 
-enum LanguageType: String {
-    case ch = "chValue"
-    case en = "enValue"
-    case ge = "geValue"
-    case jp = "jpValue"
-}
-
 final class JointManager {
     static let shared = JointManager.init()
     private init(){}
@@ -34,7 +27,7 @@ final class JointManager {
     func JointForIOS(_ keyValueModels: [KeyValueModel]) {
         var chContent = ""
         keyValueModels.forEach { (keyValueModel) in
-            chContent = chContent + "\"" + keyValueModel.key + "\" = \"" + keyValueModel.chValue + "\";" + "\n"
+            chContent = chContent + "\"" + keyValueModel.key + "\" = \"" + keyValueModel.value + "\";" + "\n"
         }
         
         let fileManager = FileManager.default
@@ -50,11 +43,11 @@ final class JointManager {
         var chContent = ""
         keyValueModels.forEach { (keyValueModel) in
             //<string name="I18N_INSIGHT_MESSAGE_DELETE_SURE">Are you sure to delete?</string>
-            var value = keyValueModel.chValue
+            var value = keyValueModel.value
             value = value.replacingOccurrences(of: "<", with: "&lt;")
             value = value.replacingOccurrences(of: ">", with: "&gt;")
-            keyValueModel.chValue = value
-            chContent = chContent + "<string name=\"" + keyValueModel.key + "\">" + keyValueModel.chValue + "</string>" + "\n"
+            keyValueModel.value = value
+            chContent = chContent + "<string name=\"" + keyValueModel.key + "\">" + keyValueModel.value + "</string>" + "\n"
         }
         
         let fileManager = FileManager.default

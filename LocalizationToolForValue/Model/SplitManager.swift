@@ -67,7 +67,7 @@ extension SplitManager {
                     if valueS.hasSuffix(dropString) {
                         valueS = valueS.replacingOccurrences(of: dropString, with: "")
                     }
-                    let keyValueModel = KeyValueModel(key: keyP, chValue: valueS)
+                    let keyValueModel = KeyValueModel(key: keyP, value: valueS)
                     keyValueModel.filePath = "\(index)"
                     sourceKeyValueModels.append(keyValueModel)
                 }
@@ -116,7 +116,7 @@ extension SplitManager {
                     if valueS.hasSuffix(dropString) {
                         valueS = valueS.replacingOccurrences(of: dropString, with: "")
                     }
-                    let keyValueModel = KeyValueModel(key: keyP, chValue: valueS)
+                    let keyValueModel = KeyValueModel(key: keyP, value: valueS)
                     sourceKeyValueModels.append(keyValueModel)
                 }
             }
@@ -160,7 +160,7 @@ extension SplitManager {
             if let checkResults = matches {
                 for checkResult in checkResults {
                     let key = (content as NSString).substring(with: checkResult.range)
-                    let keyValueModel = KeyValueModel(key: key, chValue: "")
+                    let keyValueModel = KeyValueModel(key: key, value: "")
                     keyValueModel.filePath = fileModel.filePath
                     keyValueModel.range = checkResult.range
                     sourceKeyValueModels.append(keyValueModel)

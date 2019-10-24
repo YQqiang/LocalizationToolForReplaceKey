@@ -11,15 +11,15 @@ import Foundation
 class KeyValueModel: Decodable {
     // 键
     var key: String = ""
-    // 中文
-    var chValue: String = ""
+    // 值
+    var value: String = ""
     
     var range: NSRange?
     var filePath: String?
     
-    init(key: String, chValue: String) {
+    init(key: String, value: String) {
         self.key = key
-        self.chValue = chValue
+        self.value = value
     }
     
 }

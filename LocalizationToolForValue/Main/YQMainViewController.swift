@@ -276,7 +276,7 @@ extension YQMainViewController {
             sourceKeyValueModels.forEach({ (sourceKeyValueModel) in
                 self.showMessage("正在处理:" + sourceKeyValueModel.key, label: self.sourceMessageLBL)
                 if sourceKeyValueModel.key.lowercased().hasPrefix("i18n") {
-                    content += "\"\(sourceKeyValueModel.key)\" = \"\(sourceKeyValueModel.chValue)\";\n"
+                    content += "\"\(sourceKeyValueModel.key)\" = \"\(sourceKeyValueModel.value)\";\n"
                 }
             })
             JointManager.shared.Joint("\(self.toolFucn)", content: content)
@@ -293,7 +293,7 @@ extension YQMainViewController {
             sourceKeyValueModels.forEach({ (sourceKeyValueModel) in
                 self.showMessage("正在处理:" + sourceKeyValueModel.key, label: self.sourceMessageLBL)
                 if !sourceKeyValueModel.key.lowercased().hasPrefix("i18n") {
-                    content += "\"\(sourceKeyValueModel.key)\" = \"\(sourceKeyValueModel.chValue)\";\n"
+                    content += "\"\(sourceKeyValueModel.key)\" = \"\(sourceKeyValueModel.value)\";\n"
                 }
             })
             JointManager.shared.Joint("\(self.toolFucn)", content: content)
@@ -311,13 +311,13 @@ extension YQMainViewController {
             sourceValueModels.forEach { (targetModel) in
                 sourceValueModels.forEach({ (sourceModel) in
                     if targetModel.key == sourceModel.key &&
-                        targetModel.chValue == sourceModel.chValue &&
+                        targetModel.value == sourceModel.value &&
                         targetModel.filePath! != sourceModel.filePath! &&
                         !repeatKeys.contains(sourceModel.key) &&
                         !repeatKeys.contains(targetModel.key) {
                         repeatKeys.append(sourceModel.key)
                         repeatKeys.append(targetModel.key)
-                        content += "\"\(targetModel.key)\" = \"\(sourceModel.chValue)\";\n"
+                        content += "\"\(targetModel.key)\" = \"\(sourceModel.value)\";\n"
                     }
                 })
             }
@@ -336,13 +336,13 @@ extension YQMainViewController {
             sourceValueModels.forEach { (targetModel) in
                 sourceValueModels.forEach({ (sourceModel) in
                     if targetModel.key == sourceModel.key &&
-                        targetModel.chValue != sourceModel.chValue &&
+                        targetModel.value != sourceModel.value &&
                         targetModel.filePath! != sourceModel.filePath! &&
                         !repeatKeys.contains(sourceModel.key) &&
                         !repeatKeys.contains(targetModel.key) {
                         repeatKeys.append(sourceModel.key)
                         repeatKeys.append(targetModel.key)
-                        content += "\"\(targetModel.key)\" = \"\(sourceModel.chValue)\";\n"
+                        content += "\"\(targetModel.key)\" = \"\(sourceModel.value)\";\n"
                     }
                 })
             }
@@ -361,13 +361,13 @@ extension YQMainViewController {
             sourceValueModels.forEach { (targetModel) in
                 sourceValueModels.forEach({ (sourceModel) in
                     if targetModel.key != sourceModel.key &&
-                        targetModel.chValue == sourceModel.chValue &&
+                        targetModel.value == sourceModel.value &&
                         targetModel.filePath! != sourceModel.filePath! &&
                         !repeatKeys.contains(sourceModel.key) &&
                         !repeatKeys.contains(targetModel.key) {
                         repeatKeys.append(sourceModel.key)
                         repeatKeys.append(targetModel.key)
-                        content += "\"\(targetModel.key)\" = \"\(sourceModel.chValue)\";\n"
+                        content += "\"\(targetModel.key)\" = \"\(sourceModel.value)\";\n"
                     }
                 })
             }
@@ -394,7 +394,7 @@ extension YQMainViewController {
                     }
                 }
                 if !isUsedKey {
-                    content += "\"\(targetKeyValueModel.key)\" = \"\(targetKeyValueModel.chValue)\";\n"
+                    content += "\"\(targetKeyValueModel.key)\" = \"\(targetKeyValueModel.value)\";\n"
                 }
             })
             JointManager.shared.Joint("\(self.toolFucn)", content: content)
@@ -412,7 +412,7 @@ extension YQMainViewController {
                 self.allKeyValueModels(self.sourceDataList, forEach: { (sourceKeyValueModel) -> Bool in
                     if sourceKeyValueModel.key.lowercased().hasPrefix("i18n") {
                         self.showMessage("正在处理:" + sourceKeyValueModel.key, label: self.sourceMessageLBL)
-                        if sourceKeyValueModel.key == targetKeyValueModel.chValue {
+                        if sourceKeyValueModel.key == targetKeyValueModel.value {
                             if let path = sourceKeyValueModel.filePath,
                                 let range = sourceKeyValueModel.range {
                                 var content = try? String.init(contentsOfFile: path)
@@ -477,9 +477,9 @@ extension YQMainViewController {
                 for sourceKeyValueModel in sourceKeyValueModels {
                     self.showMessage("正在处理:" + sourceKeyValueModel.key, label: self.sourceMessageLBL)
                     if sourceKeyValueModel.key == tarketKeyValueModel.key {
-                        if sourceKeyValueModel.chValue != tarketKeyValueModel.chValue {
+                        if sourceKeyValueModel.value != tarketKeyValueModel.value {
                             if isUpdate {
-                                sourceKeyValueModel.chValue = tarketKeyValueModel.chValue
+                                sourceKeyValueModel.value = tarketKeyValueModel.value
                             }
                         }
                         isCanAdd = false
@@ -506,13 +506,13 @@ extension YQMainViewController {
             let targetKeyValueModels = self.allKeyValueModels(self.targetDataList)
             for sourceKeyValueModel in sourceKeyValueModels {
                 self.showMessage("正在处理:" + sourceKeyValueModel.key, label: self.sourceMessageLBL)
-                if sourceKeyValueModel.chValue.count > 0 {
+                if sourceKeyValueModel.value.count > 0 {
                     continue
                 }
                 for tarketKeyValueModel in targetKeyValueModels {
                     self.showMessage("正在处理:" + tarketKeyValueModel.key, label: self.targetMessageLBL)
                     if sourceKeyValueModel.key == tarketKeyValueModel.key {
-                        sourceKeyValueModel.chValue = tarketKeyValueModel.chValue
+                        sourceKeyValueModel.value = tarketKeyValueModel.value
                         break
                     }
                 }
