@@ -298,6 +298,7 @@ extension YQMainViewController {
                 }
             })
             JointManager.shared.Joint("\(self.toolFucn)", content: content)
+            JointManager.shared.JointForWeb(sourceKeyValueModels, fileName: "\(self.toolFucn)")
             self.endExecute()
         }
     }
@@ -309,6 +310,7 @@ extension YQMainViewController {
         DispatchQueue.global().async {
             var repeatKeys: [String] = []
             var content = ""
+            var resultModels: [KeyValueModel] = []
             sourceValueModels.forEach { (targetModel) in
                 sourceValueModels.forEach({ (sourceModel) in
                     if targetModel.key == sourceModel.key &&
@@ -319,10 +321,12 @@ extension YQMainViewController {
                         repeatKeys.append(sourceModel.key)
                         repeatKeys.append(targetModel.key)
                         content += "\"\(targetModel.key)\" = \"\(sourceModel.value)\";\n"
+                        resultModels.append(targetModel)
                     }
                 })
             }
             JointManager.shared.Joint("\(self.toolFucn)", content: content)
+            JointManager.shared.JointForWeb(resultModels, fileName: "\(self.toolFucn)")
             self.endExecute()
         }
     }
@@ -334,6 +338,7 @@ extension YQMainViewController {
         DispatchQueue.global().async {
             var repeatKeys: [String] = []
             var content = ""
+            var resultModels: [KeyValueModel] = []
             sourceValueModels.forEach { (targetModel) in
                 sourceValueModels.forEach({ (sourceModel) in
                     if targetModel.key == sourceModel.key &&
@@ -344,10 +349,12 @@ extension YQMainViewController {
                         repeatKeys.append(sourceModel.key)
                         repeatKeys.append(targetModel.key)
                         content += "\"\(targetModel.key)\" = \"\(sourceModel.value)\";\n"
+                        resultModels.append(targetModel)
                     }
                 })
             }
             JointManager.shared.Joint("\(self.toolFucn)", content: content)
+            JointManager.shared.JointForWeb(resultModels, fileName: "\(self.toolFucn)")
             self.endExecute()
         }
     }
@@ -359,6 +366,7 @@ extension YQMainViewController {
         DispatchQueue.global().async {
             var repeatKeys: [String] = []
             var content = ""
+            var resultModels: [KeyValueModel] = []
             sourceValueModels.forEach { (targetModel) in
                 sourceValueModels.forEach({ (sourceModel) in
                     if targetModel.key != sourceModel.key &&
@@ -369,10 +377,12 @@ extension YQMainViewController {
                         repeatKeys.append(sourceModel.key)
                         repeatKeys.append(targetModel.key)
                         content += "\"\(targetModel.key)\" = \"\(sourceModel.value)\";\n"
+                        resultModels.append(targetModel)
                     }
                 })
             }
             JointManager.shared.Joint("\(self.toolFucn)", content: content)
+            JointManager.shared.JointForWeb(resultModels, fileName: "\(self.toolFucn)")
             self.endExecute()
         }
     }
@@ -385,6 +395,7 @@ extension YQMainViewController {
             let sourceKeyValueModels = self.allKeyValueModels(self.sourceDataList)
             var content = ""
             var androidContent = ""
+            var resultModels: [KeyValueModel] = []
             targetKeyValueModels.forEach({ (targetKeyValueModel) in
                 self.showMessage("正在处理:" + targetKeyValueModel.key, label: self.targetMessageLBL)
                 var isUsedKey = false
@@ -401,10 +412,12 @@ extension YQMainViewController {
                     value = value.replacingOccurrences(of: "<", with: "&lt;")
                     value = value.replacingOccurrences(of: ">", with: "&gt;")
                     androidContent = androidContent + "<string name=\"" + targetKeyValueModel.key + "\">" + targetKeyValueModel.value + "</string>" + "\n"
+                    resultModels.append(targetKeyValueModel);
                 }
             })
             JointManager.shared.Joint("\(self.toolFucn)", content: content)
             JointManager.shared.Joint("android.xml", content: androidContent)
+            JointManager.shared.JointForWeb(resultModels, fileName: "\(self.toolFucn)")
             self.endExecute()
         }
     }

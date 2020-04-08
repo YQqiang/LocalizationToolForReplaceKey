@@ -17,6 +17,14 @@ class KeyValueModel: Decodable {
     var range: NSRange?
     var filePath: String?
     
+    init(key: String, value: String) {
+        self.key = key
+        self.value = value
+    }
+    
+}
+
+extension KeyValueModel {
     var androidString: String {
         var resultValue = value
         resultValue = resultValue.replacingOccurrences(of: "<", with: "&lt;")
@@ -25,12 +33,10 @@ class KeyValueModel: Decodable {
     }
     
     var iOSString: String {
-        return ""
+        return "\"" + key + "\" = \"" + value + "\";"
     }
     
-    init(key: String, value: String) {
-        self.key = key
-        self.value = value
+    var webString: String {
+        return key + "=" + value
     }
-    
 }

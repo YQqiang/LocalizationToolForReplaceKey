@@ -22,6 +22,7 @@ enum SplitFileType {
     case xls
     case db
     case xml
+    case properties
 }
 
 final class SplitManager {
@@ -51,11 +52,32 @@ final class SplitManager {
         if ["xml"].contains(fileModel.fileExtension.lowercased()) {
             splitFiletype = .xml
         }
+        if ["properties"].contains(fileModel.fileExtension.lowercased()) {
+            splitFiletype = .properties
+        }
         return split(fileModel, splitFileType: splitFiletype, forEach: forEach)
     }
 }
 
 extension SplitManager {
+    
+    private func splitProperties(_ fileModel: YQFileModel) -> [KeyValueModel] {
+        var sourceKeyValueModels = [KeyValueModel]()
+        let jsonContent = try? String.init(contentsOfFile: fileModel.filePath)
+        if let lines = jsonContent?.components(separatedBy: "\n") {
+            for (index, line) in lines.enumerated() {
+                let keyValue = line.components(separatedBy: "=")
+                if keyValue.count == 2 {
+                    let keyP = keyValue.first!.trimmingCharacters(in: .whitespaces)
+                    let valueS = keyValue.last!
+                    let keyValueModel = KeyValueModel(key: keyP, value: valueS)
+                    keyValueModel.filePath = "\(index)"
+                    sourceKeyValueModels.append(keyValueModel)
+                }
+            }
+        }
+        return sourceKeyValueModels
+    }
     
     private func splitStrings(_ fileModel: YQFileModel, separateStr: String) -> [KeyValueModel] {
         var sourceKeyValueModels = [KeyValueModel]()
@@ -97,6 +119,8 @@ extension SplitManager {
             return splitCodeFile(fileModel, codeFileType: type, forEach: forEach)
         case .xml:
             return splitXml(fileModel)
+        case .properties:
+            return splitProperties(fileModel)
         default:
             break
         }
