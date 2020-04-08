@@ -383,6 +383,7 @@ extension YQMainViewController {
             let targetKeyValueModels = self.allKeyValueModels(self.targetDataList)
             let sourceKeyValueModels = self.allKeyValueModels(self.sourceDataList)
             var content = ""
+            var androidContent = ""
             targetKeyValueModels.forEach({ (targetKeyValueModel) in
                 self.showMessage("正在处理:" + targetKeyValueModel.key, label: self.targetMessageLBL)
                 var isUsedKey = false
@@ -395,9 +396,14 @@ extension YQMainViewController {
                 }
                 if !isUsedKey {
                     content += "\"\(targetKeyValueModel.key)\" = \"\(targetKeyValueModel.value)\";\n"
+                    var value = targetKeyValueModel.value
+                    value = value.replacingOccurrences(of: "<", with: "&lt;")
+                    value = value.replacingOccurrences(of: ">", with: "&gt;")
+                    androidContent = androidContent + "<string name=\"" + targetKeyValueModel.key + "\">" + targetKeyValueModel.value + "</string>" + "\n"
                 }
             })
             JointManager.shared.Joint("\(self.toolFucn)", content: content)
+            JointManager.shared.Joint("android.xml", content: androidContent)
             self.endExecute()
         }
     }
