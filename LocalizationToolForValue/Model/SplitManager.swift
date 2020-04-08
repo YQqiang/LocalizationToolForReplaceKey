@@ -157,12 +157,20 @@ extension SplitManager {
             prefix = "NSLocalizedString\\(\""
         }
         if codeFileType == .js {
-            prefix = "localized('"
-            suffix = "')"
+            prefix = "localized\\('"
+            suffix = "'"
+            let part = enumeratorFile(fileModel, prefix: prefix, suffix: suffix, forEach: forEach)
+            prefix = "localized\\(\""
+            suffix = "\""
+            return part + enumeratorFile(fileModel, prefix: prefix, suffix: suffix, forEach: forEach)
         }
         if codeFileType == .html {
+            prefix = "i18n-text='"
+            suffix = "'"
+            let part = enumeratorFile(fileModel, prefix: prefix, suffix: suffix, forEach: forEach)
             prefix = "i18n-text=\""
-            suffix = "\">"
+            suffix = "\""
+            return part + enumeratorFile(fileModel, prefix: prefix, suffix: suffix, forEach: forEach)
         }
         return enumeratorFile(fileModel, prefix: prefix, suffix: suffix, forEach: forEach)
     }

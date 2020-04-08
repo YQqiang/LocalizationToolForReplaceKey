@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -792,23 +792,23 @@
                                         </connections>
                                     </button>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="S63-gd-HSz">
-                                        <rect key="frame" x="6" y="267" width="338" height="18"/>
+                                        <rect key="frame" x="6" y="268" width="338" height="17"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="源资源文件" id="6CF-kE-ipO">
-                                            <font key="font" size="14" name=".PingFangSC-Regular"/>
+                                            <font key="font" metaFont="menu" size="14"/>
                                             <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Zj3-tv-EpA">
-                                        <rect key="frame" x="357" y="267" width="337" height="18"/>
+                                        <rect key="frame" x="357" y="268" width="337" height="17"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="目标资源文件" id="yyC-N4-pkn">
-                                            <font key="font" size="14" name=".PingFangSC-Regular"/>
+                                            <font key="font" metaFont="menu" size="14"/>
                                             <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="bPw-4M-vBu" customClass="YQDragDropView" customModule="LocalizationToolForReplaceKey" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="32" width="334" height="227"/>
+                                        <rect key="frame" x="8" y="32" width="334" height="228"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="image" keyPath="image" value="placerholder"/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="text" value="拖拽源文件到这!"/>
@@ -818,21 +818,21 @@
                                         </userDefinedRuntimeAttributes>
                                     </customView>
                                     <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaN-Wo-kLN">
-                                        <rect key="frame" x="8" y="32" width="334" height="227"/>
+                                        <rect key="frame" x="8" y="32" width="334" height="228"/>
                                         <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Yku-Oc-am7">
-                                            <rect key="frame" x="0.0" y="0.0" width="334" height="227"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="334" height="228"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="cjQ-Dv-tBn">
-                                                    <rect key="frame" x="0.0" y="0.0" width="334" height="227"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="334" height="228"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" red="0.18046289369999999" green="0.76571978139999997" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                     <tableColumns>
                                                         <tableColumn width="331" minWidth="40" maxWidth="1000" id="PJO-nC-RbG">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <font key="font" metaFont="label" size="11"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                             </tableHeaderCell>
@@ -878,21 +878,21 @@
                                         </scroller>
                                     </scrollView>
                                     <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTt-5T-W4M">
-                                        <rect key="frame" x="359" y="32" width="333" height="227"/>
+                                        <rect key="frame" x="359" y="32" width="333" height="228"/>
                                         <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Adg-Gh-ILU">
-                                            <rect key="frame" x="0.0" y="0.0" width="333" height="227"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="333" height="228"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="Ggy-Yr-jMk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="333" height="227"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="333" height="228"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" red="0.18046289369999999" green="0.76571978139999997" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                     <tableColumns>
                                                         <tableColumn width="330" minWidth="40" maxWidth="1000" id="PWi-YF-g1f">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <font key="font" metaFont="label" size="11"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                             </tableHeaderCell>
@@ -938,7 +938,7 @@
                                         </scroller>
                                     </scrollView>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="wLT-oz-IMQ" customClass="YQDragDropView" customModule="LocalizationToolForReplaceKey" customModuleProvider="target">
-                                        <rect key="frame" x="359" y="32" width="333" height="227"/>
+                                        <rect key="frame" x="359" y="32" width="333" height="228"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="image" keyPath="image" value="placerholder"/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="text" value="拖拽目标文件到这!"/>
@@ -972,7 +972,7 @@
                                         </connections>
                                     </button>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IDn-OD-Yda">
-                                        <rect key="frame" x="38" y="12" width="306" height="17"/>
+                                        <rect key="frame" x="38" y="12" width="306" height="16"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="grw-d4-Aqo">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -980,7 +980,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wko-zi-dAm">
-                                        <rect key="frame" x="389" y="12" width="193" height="17"/>
+                                        <rect key="frame" x="389" y="12" width="193" height="16"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="bPn-Mv-LiH">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1057,23 +1057,23 @@
                                 <rect key="frame" x="0.0" y="0.0" width="700" height="300"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HCb-h3-dvA">
-                                        <rect key="frame" x="30" y="275" width="101" height="17"/>
+                                        <rect key="frame" x="30" y="276" width="101" height="16"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="输出文件夹名称:" id="qDS-pD-0sb">
-                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gOd-pR-Huo">
-                                        <rect key="frame" x="30" y="242" width="101" height="17"/>
+                                        <rect key="frame" x="30" y="244" width="101" height="16"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="输入文件路径:" id="8m4-5d-v9a">
-                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="d1v-e1-lYK">
-                                        <rect key="frame" x="137" y="273" width="460" height="22"/>
+                                        <rect key="frame" x="137" y="274" width="460" height="21"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="raF-Jp-ubF">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -1081,7 +1081,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9gh-w7-6fK">
-                                        <rect key="frame" x="137" y="240" width="460" height="22"/>
+                                        <rect key="frame" x="137" y="242" width="460" height="21"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="7k3-5S-wSI">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -1089,101 +1089,101 @@
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Qes-2d-ev3">
-                                        <rect key="frame" x="607" y="233" width="67" height="32"/>
+                                        <rect key="frame" x="607" y="235" width="67" height="32"/>
                                         <buttonCell key="cell" type="push" title="选择" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fuZ-Qc-P5z">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="selectPathAction:" target="XfG-lQ-9wD" id="tN8-fZ-KML"/>
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iFF-cl-lKR">
-                                        <rect key="frame" x="567" y="204" width="107" height="32"/>
+                                        <rect key="frame" x="567" y="206" width="107" height="32"/>
                                         <buttonCell key="cell" type="push" title="恢复默认值" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ctt-B0-qPH">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                            <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="restoreDefaultAction:" target="XfG-lQ-9wD" id="QvZ-0r-ekG"/>
                                         </connections>
                                     </button>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="lDm-JA-Fbd">
-                                        <rect key="frame" x="32" y="11" width="636" height="200"/>
+                                        <rect key="frame" x="32" y="13" width="636" height="200"/>
                                         <subviews>
                                             <button verticalHuggingPriority="750" tag="2000" translatesAutoresizingMaskIntoConstraints="NO" id="Tj0-gJ-BoE">
-                                                <rect key="frame" x="-1" y="149" width="269" height="18"/>
+                                                <rect key="frame" x="-1" y="150" width="270" height="18"/>
                                                 <buttonCell key="cell" type="radio" title="输出资源文件中 👉'I18N_' 开头👈 的词条" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="ZFk-fr-XKP">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                                    <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                                 <connections>
                                                     <action selector="radioAction:" target="XfG-lQ-9wD" id="Vy9-iN-DhF"/>
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" tag="2001" translatesAutoresizingMaskIntoConstraints="NO" id="zbS-cF-IYj">
-                                                <rect key="frame" x="297" y="149" width="287" height="18"/>
+                                                <rect key="frame" x="298" y="150" width="287" height="18"/>
                                                 <buttonCell key="cell" type="radio" title="输出资源文件中 👉非 'I18N_' 开头👈 的词条" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="IEz-8z-JSt">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                                    <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                                 <connections>
                                                     <action selector="radioAction:" target="XfG-lQ-9wD" id="DKI-PM-6iC"/>
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" tag="2002" translatesAutoresizingMaskIntoConstraints="NO" id="Kd6-Ma-wf5">
-                                                <rect key="frame" x="-1" y="117" width="314" height="18"/>
+                                                <rect key="frame" x="-1" y="118" width="318" height="18"/>
                                                 <buttonCell key="cell" type="radio" title="输出资源文件中 👉key相同  value相同👈 的词条" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="0YM-yI-Tpt">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                                    <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                                 <connections>
                                                     <action selector="radioAction:" target="XfG-lQ-9wD" id="trb-kl-3yp"/>
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" tag="2003" translatesAutoresizingMaskIntoConstraints="NO" id="ENp-QR-lWT">
-                                                <rect key="frame" x="318" y="117" width="314" height="18"/>
+                                                <rect key="frame" x="322" y="118" width="318" height="18"/>
                                                 <buttonCell key="cell" type="radio" title="输出资源文件中 👉key相同  value不同👈 的词条" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="nOH-Iy-UKR">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                                    <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                                 <connections>
                                                     <action selector="radioAction:" target="XfG-lQ-9wD" id="KpY-FB-iFI"/>
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" tag="2004" translatesAutoresizingMaskIntoConstraints="NO" id="Yi6-aa-ApZ">
-                                                <rect key="frame" x="-1" y="85" width="314" height="18"/>
+                                                <rect key="frame" x="-1" y="86" width="318" height="18"/>
                                                 <buttonCell key="cell" type="radio" title="输出资源文件中 👉key不同  value相同👈 的词条" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="jSO-8h-OS1">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                                    <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                                 <connections>
                                                     <action selector="radioAction:" target="XfG-lQ-9wD" id="Mjc-fN-ASX"/>
                                                 </connections>
                                             </button>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="duy-tT-WcD">
-                                                <rect key="frame" x="-2" y="182" width="66" height="18"/>
+                                                <rect key="frame" x="-2" y="183" width="66" height="17"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="功能选择:" id="nhq-8a-hVM">
-                                                    <font key="font" size="14" name=".PingFangSC-Regular"/>
+                                                    <font key="font" metaFont="menu" size="14"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
                                             <button verticalHuggingPriority="750" tag="2005" translatesAutoresizingMaskIntoConstraints="NO" id="oNW-xq-fNH">
-                                                <rect key="frame" x="-1" y="53" width="450" height="18"/>
+                                                <rect key="frame" x="-1" y="54" width="458" height="18"/>
                                                 <buttonCell key="cell" type="radio" title="输出 👉目标文件中存在(页面右侧), 源文件中不存在(页面左侧)👈 的词条" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="C78-O9-wBR">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                                    <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                                 <connections>
                                                     <action selector="radioAction:" target="XfG-lQ-9wD" id="hgf-Gp-sx6"/>
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" tag="2006" translatesAutoresizingMaskIntoConstraints="NO" id="ifE-TE-dqw">
-                                                <rect key="frame" x="-1" y="21" width="628" height="18"/>
+                                                <rect key="frame" x="-1" y="22" width="612" height="18"/>
                                                 <buttonCell key="cell" type="radio" title="使用 目标文件中 key-value 的 value 匹配源文件中的 key, 并使用目标文件的 key 替换源文件中的 key" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="dM7-yL-2Qs">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                                    <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                                 <connections>
                                                     <action selector="radioAction:" target="XfG-lQ-9wD" id="Z1e-Rs-l3d"/>
