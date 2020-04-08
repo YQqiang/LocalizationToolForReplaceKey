@@ -38,6 +38,18 @@ final class JointManager {
         try? chContent.write(toFile: "\(outPath)/ch.Strings", atomically: true, encoding: String.Encoding.utf8)
     }
     
+    func JointForWeb(_ keyValueModels: [KeyValueModel], fileName: String) {
+        var chContent = ""
+        keyValueModels.forEach { (keyValueModel) in
+            chContent = chContent + keyValueModel.key + "=" + keyValueModel.value + "\n"
+        }
+        let finalPath = outPath + "/web"
+        let fileManager = FileManager.default
+        if !fileManager.fileExists(atPath: finalPath) {
+            try! fileManager.createDirectory(atPath: finalPath, withIntermediateDirectories: true, attributes: nil)
+        }
+        try? chContent.write(toFile: "\(finalPath)/\(fileName).properties", atomically: true, encoding: String.Encoding.utf8)
+    }
     
     func JointForAndroid(_ keyValueModels: [KeyValueModel]) {
         var chContent = ""

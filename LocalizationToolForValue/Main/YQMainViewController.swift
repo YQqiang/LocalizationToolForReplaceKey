@@ -280,6 +280,7 @@ extension YQMainViewController {
                 }
             })
             JointManager.shared.Joint("\(self.toolFucn)", content: content)
+            JointManager.shared.JointForWeb(sourceKeyValueModels, fileName: "\(self.toolFucn)")
             self.endExecute()
         }
     }
