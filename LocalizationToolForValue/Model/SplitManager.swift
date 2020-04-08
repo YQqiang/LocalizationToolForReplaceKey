@@ -11,6 +11,8 @@ import Foundation
 enum CodeFileType {
     case OC
     case Swift
+    case js
+    case html
 }
 
 enum SplitFileType {
@@ -39,6 +41,12 @@ final class SplitManager {
         }
         if ["m"].contains(fileModel.fileExtension.lowercased()) {
             splitFiletype = .codeFileType(codeFileType: .OC)
+        }
+        if ["js"].contains(fileModel.fileExtension.lowercased()) {
+            splitFiletype = .codeFileType(codeFileType: .js)
+        }
+        if ["html"].contains(fileModel.fileExtension.lowercased()) {
+            splitFiletype = .codeFileType(codeFileType: .html)
         }
         if ["xml"].contains(fileModel.fileExtension.lowercased()) {
             splitFiletype = .xml
@@ -144,9 +152,17 @@ extension SplitManager {
     
     private func splitCodeFile(_ fileModel: YQFileModel, codeFileType: CodeFileType, forEach: ((KeyValueModel) -> Bool)?) -> [KeyValueModel] {
         var prefix = "NSLocalizedString\\(@\""
-        let suffix = "\","
+        var suffix = "\","
         if codeFileType == .Swift {
             prefix = "NSLocalizedString\\(\""
+        }
+        if codeFileType == .js {
+            prefix = "localized('"
+            suffix = "')"
+        }
+        if codeFileType == .html {
+            prefix = "i18n-text=\""
+            suffix = "\">"
         }
         return enumeratorFile(fileModel, prefix: prefix, suffix: suffix, forEach: forEach)
     }
