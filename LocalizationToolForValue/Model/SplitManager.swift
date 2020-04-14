@@ -13,6 +13,7 @@ enum CodeFileType {
     case Swift
     case js
     case html
+    case c
 }
 
 enum SplitFileType {
@@ -48,6 +49,9 @@ final class SplitManager {
         }
         if ["html"].contains(fileModel.fileExtension.lowercased()) {
             splitFiletype = .codeFileType(codeFileType: .html)
+        }
+        if ["c"].contains(fileModel.fileExtension.lowercased()) {
+            splitFiletype = .codeFileType(codeFileType: .c)
         }
         if ["xml"].contains(fileModel.fileExtension.lowercased()) {
             splitFiletype = .xml
@@ -195,6 +199,10 @@ extension SplitManager {
             prefix = "i18n-text=\""
             suffix = "\""
             return part + enumeratorFile(fileModel, prefix: prefix, suffix: suffix, forEach: forEach)
+        }
+        if codeFileType == .c {
+            prefix = "\""
+            suffix = "\","
         }
         return enumeratorFile(fileModel, prefix: prefix, suffix: suffix, forEach: forEach)
     }
