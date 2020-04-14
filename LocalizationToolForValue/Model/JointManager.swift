@@ -43,6 +43,18 @@ final class JointManager {
         try? chContent.write(toFile: "\(finalPath)/\(fileName).properties", atomically: true, encoding: String.Encoding.utf8)
     }
     
+    func JointForXML(_ keyValueModels: [KeyValueModel]) {
+        let chContent = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<root>\n" + keyValueModels.map({$0.xmlString}).joined(separator: "\n") + "\n</root>"
+        
+        let finalPath = outPath + "/web"
+        let fileManager = FileManager.default
+        if !fileManager.fileExists(atPath: finalPath) {
+            try! fileManager.createDirectory(atPath: finalPath, withIntermediateDirectories: true, attributes: nil)
+        }
+        
+        try? chContent.write(toFile: "\(finalPath)/webserver.xml", atomically: true, encoding: String.Encoding.utf8)
+    }
+    
     func JointForAndroid(_ keyValueModels: [KeyValueModel]) {
         let chContent = keyValueModels.map({$0.androidString}).joined(separator: "\n")
         

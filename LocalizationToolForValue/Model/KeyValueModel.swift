@@ -39,4 +39,11 @@ extension KeyValueModel {
     var webString: String {
         return key + "=" + value
     }
+    
+    var xmlString: String {
+        var resultValue = value
+        resultValue = resultValue.replacingOccurrences(of: "<", with: "&lt;")
+        resultValue = resultValue.replacingOccurrences(of: ">", with: "&gt;")
+        return "  <string name=\"" + key + "\">" + resultValue + "</string>"
+    }
 }
