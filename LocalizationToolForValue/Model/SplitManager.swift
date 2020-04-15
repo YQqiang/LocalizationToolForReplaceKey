@@ -201,17 +201,19 @@ extension SplitManager {
             return part + enumeratorFile(fileModel, prefix: prefix, suffix: suffix, forEach: forEach)
         }
         if codeFileType == .c {
-            prefix = "\""
+            prefix = "I18"
             suffix = "\","
+            return enumeratorFile(fileModel, prefix: prefix, suffix: suffix, containPrefix: true, forEach: forEach)
         }
         return enumeratorFile(fileModel, prefix: prefix, suffix: suffix, forEach: forEach)
     }
     
-    private func enumeratorFile(_ fileModel: YQFileModel, prefix: String, suffix: String, loop: Bool = true, forEach: ((KeyValueModel) -> Bool)?) -> [KeyValueModel] {
+    private func enumeratorFile(_ fileModel: YQFileModel, prefix: String, suffix: String, containPrefix: Bool = false, loop: Bool = true, forEach: ((KeyValueModel) -> Bool)?) -> [KeyValueModel] {
         let content = try? String.init(contentsOfFile: fileModel.filePath)
         var sourceKeyValueModels = [KeyValueModel]()
         if let content = content {
-            let regular = try? NSRegularExpression(pattern: "(?<=\(prefix)).*?(?=\(suffix))", options: .caseInsensitive)
+            let pattern = containPrefix ? "(?=\(prefix)).*?(?=\(suffix))" : "(?<=\(prefix)).*?(?=\(suffix))"
+            let regular = try? NSRegularExpression(pattern: pattern, options: .caseInsensitive)
             let matches = regular?.matches(in: content, options: .reportProgress, range: NSRange.init(location: 0, length: content.count))
             if let checkResults = matches {
                 for checkResult in checkResults {
@@ -224,7 +226,7 @@ extension SplitManager {
                         let haveTargetKey = closure(keyValueModel)
                         if haveTargetKey && loop && !["strings", "txt"].contains(fileModel.fileExtension.lowercased()) {
                             for _ in 0..<checkResults.count {
-                                _ = enumeratorFile(fileModel, prefix: prefix, suffix: suffix, loop: false, forEach: closure)
+                                _ = enumeratorFile(fileModel, prefix: prefix, suffix: suffix, containPrefix: containPrefix, loop: false, forEach: closure)
                             }
                         }
                     }
