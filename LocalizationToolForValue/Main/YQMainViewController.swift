@@ -222,7 +222,10 @@ extension YQMainViewController {
         fileModels.forEach { (fileModel) in
             fileModel.enumeratorFile({ (filePath) in
                 let models = SplitManager.shared.split(YQFileModel(filePath: filePath), forEach: forEach)
-                keyValueModels = keyValueModels + models
+                let result = models.filter { (kv) -> Bool in
+                    keyValueModels.filter { $0.key == kv.key }.count <= 0
+                }
+                keyValueModels = keyValueModels + result
             })
         }
         return keyValueModels
@@ -271,16 +274,13 @@ extension YQMainViewController {
     fileprivate func inputI18NAction() {
         starExecute()
         DispatchQueue.global().async {
-            let sourceKeyValueModels = self.allKeyValueModels(self.sourceDataList)
-            var content = ""
-            sourceKeyValueModels.forEach({ (sourceKeyValueModel) in
-                self.showMessage("正在处理:" + sourceKeyValueModel.key, label: self.sourceMessageLBL)
-                if sourceKeyValueModel.key.lowercased().hasPrefix("i18n") {
-                    content += "\"\(sourceKeyValueModel.key)\" = \"\(sourceKeyValueModel.value)\";\n"
-                }
-            })
-            JointManager.shared.Joint("\(self.toolFucn)", content: content)
-            JointManager.shared.JointForWeb(sourceKeyValueModels, fileName: "\(self.toolFucn)")
+            let sourceKeyValueModels = self.allKeyValueModels(self.sourceDataList).filter { $0.key.lowercased().hasPrefix("i18n") }
+            let targetKeyValueModels = self.allKeyValueModels(self.targetDataList).filter { $0.key.lowercased().hasPrefix("i18n") }
+            
+            let result = targetKeyValueModels.filter { (kv) -> Bool in
+                sourceKeyValueModels.filter { $0.key == kv.key }.count > 0
+            }
+            JointManager.shared.JointCommon(keyValueModels: result, fileExtension: self.targetDataList.first?.fileExtension ?? "")
             self.endExecute()
         }
     }

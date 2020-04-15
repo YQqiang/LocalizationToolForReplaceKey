@@ -714,9 +714,9 @@
                                 <rect key="frame" x="0.0" y="300" width="700" height="320"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6qy-LM-hqn">
-                                        <rect key="frame" x="231" y="293" width="239" height="19"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="LocalizationToolForReplaceKey" id="Wmn-WK-gXS">
-                                            <font key="font" metaFont="systemSemibold" size="16"/>
+                                        <rect key="frame" x="270" y="293" width="161" height="19"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="园总专用2020-04-15" id="Wmn-WK-gXS">
+                                            <font key="font" size="16" name=".PingFangSC-Medium"/>
                                             <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -832,7 +832,7 @@
                                                     <tableColumns>
                                                         <tableColumn width="331" minWidth="40" maxWidth="1000" id="PJO-nC-RbG">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                                <font key="font" metaFont="label" size="11"/>
+                                                                <font key="font" metaFont="message" size="11"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                             </tableHeaderCell>
@@ -892,7 +892,7 @@
                                                     <tableColumns>
                                                         <tableColumn width="330" minWidth="40" maxWidth="1000" id="PWi-YF-g1f">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                                <font key="font" metaFont="label" size="11"/>
+                                                                <font key="font" metaFont="message" size="11"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                             </tableHeaderCell>
@@ -1112,17 +1112,17 @@
                                         <rect key="frame" x="32" y="13" width="636" height="200"/>
                                         <subviews>
                                             <button verticalHuggingPriority="750" tag="2000" translatesAutoresizingMaskIntoConstraints="NO" id="Tj0-gJ-BoE">
-                                                <rect key="frame" x="-1" y="150" width="270" height="18"/>
-                                                <buttonCell key="cell" type="radio" title="输出资源文件中 👉'I18N_' 开头👈 的词条" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="ZFk-fr-XKP">
+                                                <rect key="frame" x="-1" y="150" width="76" height="18"/>
+                                                <buttonCell key="cell" type="radio" title="园总专用" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="ZFk-fr-XKP">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                    <font key="font" metaFont="system"/>
+                                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
                                                 </buttonCell>
                                                 <connections>
                                                     <action selector="radioAction:" target="XfG-lQ-9wD" id="Vy9-iN-DhF"/>
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" tag="2001" translatesAutoresizingMaskIntoConstraints="NO" id="zbS-cF-IYj">
-                                                <rect key="frame" x="298" y="150" width="287" height="18"/>
+                                                <rect key="frame" x="104" y="150" width="287" height="18"/>
                                                 <buttonCell key="cell" type="radio" title="输出资源文件中 👉非 'I18N_' 开头👈 的词条" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="IEz-8z-JSt">
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>

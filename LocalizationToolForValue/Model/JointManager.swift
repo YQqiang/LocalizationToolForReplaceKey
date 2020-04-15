@@ -24,6 +24,25 @@ final class JointManager {
         return path
     }
     
+    func JointCommon(keyValueModels: [KeyValueModel], fileExtension: String) {
+        if ["c", "xml"].contains(fileExtension.lowercased()) {
+            JointForXML(keyValueModels)
+        } else if ["properties"].contains(fileExtension.lowercased()) {
+            JointForWeb(keyValueModels, fileName: "localization")
+        }
+        JointKey(keyValueModels: keyValueModels)
+    }
+    
+    func JointKey(keyValueModels: [KeyValueModel]) {
+        let content = keyValueModels.map { $0.key }.joined(separator: "\n")
+        let finalPath = outPath + "/web"
+        let fileManager = FileManager.default
+        if !fileManager.fileExists(atPath: finalPath) {
+            try! fileManager.createDirectory(atPath: finalPath, withIntermediateDirectories: true, attributes: nil)
+        }
+        try? content.write(toFile: "\(finalPath)/\("key").txt", atomically: true, encoding: String.Encoding.utf8)
+    }
+    
     func JointForIOS(_ keyValueModels: [KeyValueModel]) {
         let chContent = keyValueModels.map({$0.iOSString}).joined(separator: "\n")
         let fileManager = FileManager.default
