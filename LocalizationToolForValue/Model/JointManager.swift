@@ -27,6 +27,7 @@ final class JointManager {
     func JointCommon(keyValueModels: [KeyValueModel], fileExtension: String) {
         if ["c", "xml"].contains(fileExtension.lowercased()) {
             JointForXML(keyValueModels)
+            JointForWeb(keyValueModels, fileName: "webserver")
         } else if ["properties"].contains(fileExtension.lowercased()) {
             JointForWeb(keyValueModels, fileName: "localization")
         }
