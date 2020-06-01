@@ -193,12 +193,12 @@ extension SplitManager {
             return part + enumeratorFile(fileModel, prefix: prefix, suffix: suffix, forEach: forEach)
         }
         if codeFileType == .html {
-            prefix = "i18n-text='"
+            prefix = "I18N_"
             suffix = "'"
-            let part = enumeratorFile(fileModel, prefix: prefix, suffix: suffix, forEach: forEach)
-            prefix = "i18n-text=\""
+            let part = enumeratorFile(fileModel, prefix: prefix, suffix: suffix, containPrefix: true, forEach: forEach)
+            prefix = "I18N_"
             suffix = "\""
-            return part + enumeratorFile(fileModel, prefix: prefix, suffix: suffix, forEach: forEach)
+            return part + enumeratorFile(fileModel, prefix: prefix, suffix: suffix, containPrefix: true, forEach: forEach)
         }
         if codeFileType == .c {
             prefix = "I18"
