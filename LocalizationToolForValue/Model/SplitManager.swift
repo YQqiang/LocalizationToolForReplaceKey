@@ -187,10 +187,17 @@ extension SplitManager {
         if codeFileType == .js {
             prefix = "localized\\('"
             suffix = "'"
-            let part = enumeratorFile(fileModel, prefix: prefix, suffix: suffix, forEach: forEach)
+            var part = enumeratorFile(fileModel, prefix: prefix, suffix: suffix, forEach: forEach)
             prefix = "localized\\(\""
             suffix = "\""
-            return part + enumeratorFile(fileModel, prefix: prefix, suffix: suffix, forEach: forEach)
+            part += enumeratorFile(fileModel, prefix: prefix, suffix: suffix, forEach: forEach)
+            prefix = "localized\\([\""
+            suffix = "\""
+            part += enumeratorFile(fileModel, prefix: prefix, suffix: suffix, forEach: forEach)
+            prefix = "localized\\(['"
+            suffix = "'"
+            part += enumeratorFile(fileModel, prefix: prefix, suffix: suffix, forEach: forEach)
+            return part
         }
         if codeFileType == .html {
             prefix = "I18N_"
