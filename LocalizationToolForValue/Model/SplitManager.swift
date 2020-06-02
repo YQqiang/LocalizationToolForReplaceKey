@@ -118,7 +118,7 @@ extension SplitManager {
             }
             return splitStrings(fileModel, separateStr: "\" = \"")
         case .json:
-            return splitJson(fileModel)
+            return splitChengYuanJson(fileModel)
         case .codeFileType(codeFileType: let type):
             return splitCodeFile(fileModel, codeFileType: type, forEach: forEach)
         case .xml:
@@ -158,6 +158,12 @@ extension SplitManager {
             }
         }
         return sourceKeyValueModels
+    }
+    
+    private func splitChengYuanJson(_ fileModel: YQFileModel) -> [KeyValueModel] {
+        let prefix = "I18N_"
+        let suffix = "\""
+        return enumeratorFile(fileModel, prefix: prefix, suffix: suffix, containPrefix: true, forEach: nil)
     }
     
     private func splitJson(_ fileModel: YQFileModel) -> [KeyValueModel] {
