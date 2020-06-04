@@ -191,19 +191,12 @@ extension SplitManager {
             prefix = "NSLocalizedString\\(\""
         }
         if codeFileType == .js {
-            prefix = "localized\\('"
+            prefix = "I18N_"
             suffix = "'"
-            var part = enumeratorFile(fileModel, prefix: prefix, suffix: suffix, forEach: forEach)
-            prefix = "localized\\(\""
+            let part = enumeratorFile(fileModel, prefix: prefix, suffix: suffix, containPrefix: true, forEach: forEach)
+            prefix = "I18N_"
             suffix = "\""
-            part += enumeratorFile(fileModel, prefix: prefix, suffix: suffix, forEach: forEach)
-            prefix = "localized\\([\""
-            suffix = "\""
-            part += enumeratorFile(fileModel, prefix: prefix, suffix: suffix, forEach: forEach)
-            prefix = "localized\\(['"
-            suffix = "'"
-            part += enumeratorFile(fileModel, prefix: prefix, suffix: suffix, forEach: forEach)
-            return part
+            return part + enumeratorFile(fileModel, prefix: prefix, suffix: suffix, containPrefix: true, forEach: forEach)
         }
         if codeFileType == .html {
             prefix = "I18N_"
